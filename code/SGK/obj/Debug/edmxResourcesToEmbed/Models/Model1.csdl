@@ -1,0 +1,276 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SGK_lynnModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="T_Account">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Psd" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="Tel" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="DeptID" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="RoleID" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="T_Building">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="SZYQ" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="T_Campus">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="T_Dept">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="T_Dorm">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SSLD" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="SSLC" Type="Int32" />
+    <Property Name="FJH" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="SSLX" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="ZSFY" Type="Int32" />
+    <Property Name="CWS" Type="Int32" />
+    <Property Name="KYCWS" Type="Int32" />
+    <Property Name="Sex" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="DeptID" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="Remark" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" />
+    <Property Name="Bed_01" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="Bed_02" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="Bed_03" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="Bed_04" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="Bed_05" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="Bed_06" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="Bed_07" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="Bed_08" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="Bed_09" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="Bed_10" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="T_Region">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="SZXQ" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="T_Report">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="AccountID" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="Type" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="Time" Type="DateTime" Precision="3" />
+    <Property Name="Num" Type="Int32" />
+    <Property Name="Reason" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" />
+    <Property Name="AuditID" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="RejectReason" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="Remark" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="T_Role">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+  </EntityType>
+  <EntityType Name="T_Student">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="ClassName" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="Sex" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="Tel" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="DeptID" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="College" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="Major" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="Year" Type="Int32" />
+    <Property Name="StuStatus" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="Status" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="DormID" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="Remark" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="T_SubReport">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ReportID" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="StudentID" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="OutDormID" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="InDormID" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="PriceChanged" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+  </EntityType>
+  <EntityType Name="vw_Account">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Psd" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="Tel" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="DeptID" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="RoleID" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="Dept" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="Role" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+  </EntityType>
+  <EntityType Name="vw_Building">
+    <Key>
+      <PropertyRef Name="BuildingID" />
+    </Key>
+    <Property Name="BuildingID" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Building" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="RegionID" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="Region" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="CampusID" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="Campus" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="vw_Dorm">
+    <Key>
+      <PropertyRef Name="DormID" />
+    </Key>
+    <Property Name="DormID" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="BuildingID" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="SSLC" Type="Int32" />
+    <Property Name="FJH" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="SSLX" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="ZSFY" Type="Int32" />
+    <Property Name="CWS" Type="Int32" />
+    <Property Name="KYCWS" Type="Int32" />
+    <Property Name="Sex" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="DeptID" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="Remark" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" />
+    <Property Name="Bed_01" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="Bed_02" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="Bed_03" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="Bed_04" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="Bed_05" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="Bed_06" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="Bed_07" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="Bed_08" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="Bed_09" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="Bed_10" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="Building" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="RegionID" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="Region" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="CampusID" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="Campus" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="Stu_01" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="Stu_02" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="Stu_03" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="Stu_04" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="Stu_05" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="Stu_06" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="Stu_07" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="Stu_08" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="Stu_09" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="Stu_10" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="vw_Region">
+    <Key>
+      <PropertyRef Name="RegionID" />
+    </Key>
+    <Property Name="RegionID" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Region" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="CampusID" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="Campus" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="vw_Student">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="ClassName" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="Sex" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="Tel" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="DeptID" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="College" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="Major" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="Year" Type="Int32" />
+    <Property Name="StuStatus" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="Status" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="DormID" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="Remark" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" />
+    <Property Name="Dept" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="Campus" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="Region" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="Building" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="FJH" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityContainer Name="SGK_lynnEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="T_Account" EntityType="Self.T_Account" />
+    <EntitySet Name="T_Building" EntityType="Self.T_Building" />
+    <EntitySet Name="T_Campus" EntityType="Self.T_Campus" />
+    <EntitySet Name="T_Dept" EntityType="Self.T_Dept" />
+    <EntitySet Name="T_Dorm" EntityType="Self.T_Dorm" />
+    <EntitySet Name="T_Region" EntityType="Self.T_Region" />
+    <EntitySet Name="T_Report" EntityType="Self.T_Report" />
+    <EntitySet Name="T_Role" EntityType="Self.T_Role" />
+    <EntitySet Name="T_Student" EntityType="Self.T_Student" />
+    <EntitySet Name="T_SubReport" EntityType="Self.T_SubReport" />
+    <EntitySet Name="vw_Account" EntityType="Self.vw_Account" />
+    <EntitySet Name="vw_Building" EntityType="Self.vw_Building" />
+    <EntitySet Name="vw_Dorm" EntityType="Self.vw_Dorm" />
+    <EntitySet Name="vw_Region" EntityType="Self.vw_Region" />
+    <EntitySet Name="vw_Student" EntityType="Self.vw_Student" />
+    <EntitySet Name="vw_Report" EntityType="SGK_lynnModel.vw_Report" />
+    <EntitySet Name="vw_SubReport" EntityType="SGK_lynnModel.vw_SubReport" />
+  </EntityContainer>
+  <EntityType Name="vw_Report">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="AccountID" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="Type" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="Time" Type="DateTime" Precision="3" />
+    <Property Name="Num" Type="Int32" />
+    <Property Name="Reason" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" />
+    <Property Name="AuditID" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="RejectReason" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="Remark" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="AuditName" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="vw_SubReport">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="ReportID" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="StudentID" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="OutDormID" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="InDormID" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="PriceChanged" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="StuName" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="OutCampus" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="OutRegion" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="OutBuilding" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="OutFJH" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="InCampus" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="InRegion" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="InBuilding" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="InFJH" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+  </EntityType>
+</Schema>

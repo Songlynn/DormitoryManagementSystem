@@ -1,0 +1,221 @@
+﻿
+@{
+    ViewBag.Title = "Add";
+    var F = Html.F();
+}
+
+@section script{
+    <script src="~/res/js/grid.js"></script>
+
+    <script>
+
+            function onNewClick(event) {
+                F.ui.gridSubReport.addNewRecord({
+                    'StudentID': '',
+                    'StuName': '',
+                    'OutDormID': '',
+                    'OutFJH': '',
+                    'InDormID': '',
+                    'InFJH': ''
+                }, true);
+            }
+
+            function onResetClick(event) {
+                F.confirm({
+                    message: '确定要重置表格数据？',
+                    ok: function () {
+                        F.ui.gridSubReport.rejectChanges();
+                    }
+                });
+            }
+
+            function selectStudent() {
+                F.ui.windows.show('@Url.Content("~/TB/Report/SelectStudent")', '选择学生');
+            }
+
+        function selectInDorm() {
+            F.ui.windows.show('@Url.Content("~/TB/Report/SelectDorm")', '选择宿舍');
+        }
+
+    </script>
+}
+
+@section body{
+    @(F.Panel()
+        .ShowBorder(false)
+        .ShowHeader(false)
+        .IsViewPort(true)
+        .Layout(LayoutType.HBox)
+        .Items(
+            F.Form()
+                .BodyPadding(10)
+                .AutoScroll(true)
+                .ShowHeader(false)
+                .ShowBorder(false)
+                .ID("SimpleForm1")
+                .IsViewPort(true)
+                .Toolbars(
+                    F.Toolbar()
+                        .ToolbarAlign(ToolbarAlign.Center)
+                        .Position(ToolbarPosition.Bottom)
+                        .Items(
+                            F.Button()
+                                .ID("btnSubmit")
+                                .IconFont(IconFont.Save)
+                                .ValidateForms("SimpleForm1")
+                                .CssClass("marginr")
+                                .Text("保存")
+                                .OnClick(Url.Action("btnSubmit_Click"), "SimpleForm1")
+                        )
+                )
+                .Rows(
+                    F.FormRow()
+                        .Items(
+                            F.DropDownList()
+                                .ID("ddlType")
+                                .Required(true)
+                                .ShowRedStar(true)
+                                .Label("申请类型")
+                                .EmptyText("请选择申请类型")
+                                .Items(
+                                    F.ListItem()
+                                        .Value("0")
+                                        .Text("宿舍调整"),
+                                    F.ListItem()
+                                        .Value("1")
+                                        .Text("宿舍交换"),
+                                    F.ListItem()
+                                        .Value("2")
+                                        .Text("入住"),
+                                    F.ListItem()
+                                        .Value("3")
+                                        .Text("退宿")
+                                )
+                        ),
+                    F.FormRow()
+                        .Items(
+                            F.TextArea()
+                                .ID("tbReason")
+                                .Required(true)
+                                .ShowRedStar(true)
+                                .Label("原因")
+                                .Height(60)
+                        ),
+                    F.FormRow()
+                        .Items(
+                            F.TextArea()
+                                .ID("tbRemark")
+                                .Required(false)
+                                .Label("备注")
+                                .Height(60)
+                        ),
+                    F.FormRow()
+                        .Items(
+                            F.Grid()
+                .ID("gridSubReport")
+                .ShowBorder(true)
+                .ShowHeader(true)
+                .Title("调整信息")
+                .EnableCollapse(true)
+                .Width(850)
+                .DataIDField("ID")
+                .DataTextField("Name")
+                .AllowCellEditing(true)
+                .ClicksToEdit(2)
+                .EnableCheckBoxSelect(true)
+                .Toolbars(
+                    F.Toolbar()
+                        .ID("Toolbar1")
+                        .Items(
+                            F.Button()
+                                .ID("btnNew")
+                                .Text("新增数据")
+                                .Icon(Icon.Add)
+                                .Listener("click", "onNewClick"),
+                            F.ToolbarFill(),
+                            F.Button()
+                                .ID("btnReset")
+                                .Text("重置表格数据")
+                                .Listener("click", "onResetClick")
+                        )
+                )
+                .Columns(
+                    F.RowNumberField(),
+                    F.RenderField()
+                        .HeaderText("学号")
+                        .DataField("StudentID")
+                        .ColumnID("StudentID")
+                        .TextAlign(TextAlign.Center)
+                        .Width(80)
+                        .Hidden(true),
+                    F.RenderField()
+                                .HeaderText("姓名")
+                                .DataField("StuName")
+                                .ColumnID("StuName")
+                                .Width(100)
+                                .Editor(
+                                    F.TriggerBox()
+                                        .ID("tgbStuName")
+                                        .Required(true)
+                                        .EnableEdit(false)
+                                        .TriggerIcon(TriggerIcon.Search)
+                                        .ShowTrigger(true)
+                                        .EmptyText("选择学生")
+                                        .OnClientTriggerClick("selectStudent();")
+                                ),
+                            F.RenderField()
+                                .HeaderText("调出寝室号")
+                                .DataField("OutDormID")
+                                .TextAlign(TextAlign.Center)
+                                .Width(80)
+                                .Hidden(true),
+                            F.RenderField()
+                                .HeaderText("调出宿舍")
+                                .DataField("OutFJH")
+                                .ColumnID("OutFJH")
+                                .Width(150)
+                                .Editor(
+                                    F.TextBox()
+                                        .ID("tbOutFJH")
+                                        .Enabled(false)
+                                ),
+                            F.RenderField()
+                                .HeaderText("调入寝室号")
+                                .DataField("InDormID")
+                                .TextAlign(TextAlign.Center)
+                                .Width(80)
+                                .Hidden(true),
+                            F.RenderField()
+                                .HeaderText("调入宿舍")
+                                .DataField("InFJH")
+                                .ColumnID("InFJH")
+                                .Width(150)
+                                .Editor(
+                                    F.TriggerBox()
+                                        .ID("tgbInDorm")
+                                        .EnableEdit(false)
+                                        .TriggerIcon(TriggerIcon.Search)
+                                        .ShowTrigger(true)
+                                        .OnClientTriggerClick("selectInDorm();")
+                                )
+                )
+                .DataSource(ViewBag.girdSubReport)
+                        )
+                )
+
+            )
+    )
+    @(
+    F.Window()
+        .Hidden(true)
+        .Height(500)
+        .Width(600)
+        .IsModal(true)
+        .Target(Target.Top)
+        .EnableResize(true)
+        .EnableMaximize(true)
+        .EnableIFrame(true)
+        .ID("windows")
+    )
+}
+

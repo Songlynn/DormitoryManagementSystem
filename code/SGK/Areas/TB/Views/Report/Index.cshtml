@@ -1,0 +1,236 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    var F = Html.F();
+}
+
+@section script{
+    <script src="~/res/js/grid.js"></script>
+    <script>
+        function btnAdd() {
+            F.ui.window_dept.show('@Url.Content("~/TB/Report/Add")', "新增单位");
+        }
+
+        function btnDelete() {
+            var deleteImageUrl = '@Url.Content("~/res/icon/Delete.png")';
+            return '<a class="action-btn btndelete" href="javascript:;"><img class="f-grid-cell-icon" src="' + deleteImageUrl + '"></a>';
+        }
+        function deleteSelectedRows(selectedRows) {
+            // 触发后台事件
+            F.doPostBack('@Url.Action("btnDelete_Click")', {
+                'selectedRows': selectedRows,
+                'gridLeaveList_fields': F.ui.gridDeptList.fields
+            });
+        }
+
+        function btnEdit() {
+            var editImageUrl = '@Url.Content("~/res/icon/pencil.png")';
+            return '<a class="action-btn btnedit" href="javascript:;"><img class="f-grid-cell-icon" src="' + editImageUrl + '"></a>'
+        }
+
+        F.ready(function () {
+
+            var grid = F.ui.gridReport;
+            grid.el.on('click', 'a.action-btn', function (event) {
+                var cnode = $(this);
+                var rowE1 = $(this).closest('.f-grid-row');
+                var rowData = grid.getRowData(rowE1);
+                if (cnode.hasClass('btndelete')) {
+                    F.confirm({
+                        message: '你确定要这么做吗？',
+                        target: '_top',
+                        ok: function () {
+                            deleteSelectedRows([rowData.id]);
+                        }
+                    });
+                }
+                else if (cnode.hasClass('btnedit')) {
+                    F.ui.window_dept.show('@Url.Content("~/TB/Report/Modify")?id='+[rowData.id][0],"编辑单位信息");
+                }
+            });
+
+        });
+    </script>
+}
+
+@section body{
+    @(
+    F.Panel()
+        .ShowBorder(false)
+        .ShowHeader(false)
+        .IsViewPort(true)
+        .Layout(LayoutType.VBox)
+        .Items(
+            F.Grid()
+                .EnableCollapse(false)
+                .Title("变动申请")
+                .ShowHeader(true)
+                .ShowBorder(true)
+                .ID("gridReport")
+                .EnableCheckBoxSelect(true)
+                .AllowPaging(true)
+                .PageSize(20)
+                .DataIDField("ID")
+                .DataTextField("Name")
+                .BoxFlex(3)
+                .Toolbars(
+                    F.Toolbar()
+                        .ID("btngroup")
+                        .Items(
+                            F.Button()
+                                .ID("btnAdd")
+                                .Text("新增")
+                                .Listener("click", "btnAdd();"),
+                            F.ToolbarSeparator()
+                                .MarginLeft(10)
+                                .MarginRight(10),
+                            F.Button()
+                                .ID("btnDelList")
+                                .Text("删除")
+                        )
+                )
+                .Columns(
+                    F.RowNumberField()
+                        .TextAlign(TextAlign.Center),
+                    F.RenderField()
+                        .HeaderText("删除")
+                        .Width(50)
+                        .TextAlign(TextAlign.Center)
+                        .RendererFunction("btnDelete"),
+                    F.RenderField()
+                        .HeaderText("编辑")
+                        .TextAlign(TextAlign.Center)
+                        .Width(50)
+                        .RendererFunction("btnEdit"),
+                    F.RenderField()
+                        .HeaderText("状态")
+                        .DataField("Status")
+                        .TextAlign(TextAlign.Center)
+                        .Width(80),
+                    F.RenderField()
+                        .HeaderText("编号")
+                        .DataField("ID")
+                        .TextAlign(TextAlign.Center)
+                        .Width(100),
+                    F.RenderField()
+                        .HeaderText("申请单位")
+                        .DataField("Name")
+                        .TextAlign(TextAlign.Center)
+                        .Width(80),
+                    F.RenderField()
+                        .HeaderText("单位编号")
+                        .DataField("ID")
+                        .TextAlign(TextAlign.Center)
+                        .Width(100),
+                    F.RenderField()
+                        .HeaderText("申请类型")
+                        .DataField("Type")
+                        .TextAlign(TextAlign.Center)
+                        .Width(80),
+                    F.RenderField()
+                        .HeaderText("申请时间")
+                        .DataField("Time")
+                        .TextAlign(TextAlign.Center)
+                        .Width(100),
+                    F.RenderField()
+                        .HeaderText("变动数量")
+                        .DataField("Name")
+                        .TextAlign(TextAlign.Center)
+                        .Width(80),
+                    F.RenderField()
+                        .HeaderText("原因")
+                        .DataField("Reason")
+                        .TextAlign(TextAlign.Center)
+                        .Width(100),
+                    F.RenderField()
+                        .HeaderText("审核人")
+                        .DataField("AuditName")
+                        .TextAlign(TextAlign.Center)
+                        .Width(80),
+                    F.RenderField()
+                        .HeaderText("驳回理由")
+                        .DataField("RejectReason")
+                        .TextAlign(TextAlign.Center)
+                        .Width(100),
+                    F.RenderField()
+                        .HeaderText("备注")
+                        .DataField("Remark")
+                        .TextAlign(TextAlign.Center)
+                        .Width(80)
+                )
+                .DataSource(ViewBag.gridReport),
+            F.Grid()
+                .EnableCollapse(false)
+                .Title("调整信息")
+                .ShowHeader(true)
+                .ShowBorder(true)
+                .ID("gridSubReport")
+                .EnableCheckBoxSelect(true)
+                .AllowPaging(true)
+                .PageSize(20)
+                .DataIDField("ID")
+                .BoxFlex(2)
+                .Columns(
+                    F.RowNumberField()
+                        .TextAlign(TextAlign.Center),
+                    F.RenderField()
+                        .HeaderText("删除")
+                        .Width(50)
+                        .TextAlign(TextAlign.Center)
+                        .RendererFunction("btnDelete"),
+                    F.RenderField()
+                        .HeaderText("编辑")
+                        .TextAlign(TextAlign.Center)
+                        .Width(50)
+                        .RendererFunction("btnEdit"),
+                    F.RenderField()
+                        .HeaderText("编号")
+                        .DataField("ID")
+                        .TextAlign(TextAlign.Center)
+                        .Width(100)
+                        .Hidden(true),
+                    F.RenderField()
+                        .HeaderText("学号")
+                        .DataField("StudentID")
+                        .TextAlign(TextAlign.Center)
+                        .Width(80),
+                    F.RenderField()
+                        .HeaderText("学生姓名")
+                        .DataField("StuName")
+                        .TextAlign(TextAlign.Center)
+                        .Width(80),
+                    F.RenderField()
+                        .HeaderText("调出宿舍")
+                        .DataField("OutFJH")
+                        .TextAlign(TextAlign.Center)
+                        .Width(80),
+                    F.RenderField()
+                        .HeaderText("调入宿舍")
+                        .DataField("InFJH")
+                        .TextAlign(TextAlign.Center)
+                        .Width(80),
+                    F.RenderField()
+                        .HeaderText("费用变动")
+                        .DataField("PriceChanged")
+                        .TextAlign(TextAlign.Center)
+                        .Width(80)
+                )
+                .DataSource(ViewBag.gridSubReport)
+        )
+
+    )
+    @(
+    F.Window()
+        .Hidden(true)
+        .Height(500)
+        .Width(600)
+        .IsModal(true)
+        .Target(Target.Top)
+        .EnableResize(true)
+        .EnableMaximize(true)
+        .EnableIFrame(true)
+        .ID("window_dept")
+    )
+
+}
+

@@ -1,0 +1,133 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    var F = Html.F();
+}
+
+@section script{
+    <script src="~/res/js/grid.js"></script>
+    <script>
+        function btnAdd() {
+            F.ui.window_dept.show('@Url.Content("~/JC/Dept/Add")', "新增单位");
+        }
+
+        function btnDelete() {
+            var deleteImageUrl = '@Url.Content("~/res/icon/Delete.png")';
+            return '<a class="action-btn btndelete" href="javascript:;"><img class="f-grid-cell-icon" src="' + deleteImageUrl + '"></a>';
+        }
+        function deleteSelectedRows(selectedRows) {
+            // 触发后台事件
+            F.doPostBack('@Url.Action("btnDelete_Click")', {
+                'selectedRows': selectedRows,
+                'gridLeaveList_fields': F.ui.gridDeptList.fields
+            });
+        }
+
+        function btnEdit() {
+            var editImageUrl = '@Url.Content("~/res/icon/pencil.png")';
+            return '<a class="action-btn btnedit" href="javascript:;"><img class="f-grid-cell-icon" src="' + editImageUrl + '"></a>'
+        }
+
+        F.ready(function () {
+
+            var grid = F.ui.gridDeptList;
+            grid.el.on('click', 'a.action-btn', function (event) {
+                var cnode = $(this);
+                var rowE1 = $(this).closest('.f-grid-row');
+                var rowData = grid.getRowData(rowE1);
+                if (cnode.hasClass('btndelete')) {
+                    F.confirm({
+                        message: '你确定要这么做吗？',
+                        target: '_top',
+                        ok: function () {
+                            deleteSelectedRows([rowData.id]);
+                        }
+                    });
+                }
+                else if (cnode.hasClass('btnedit')) {
+                    F.ui.window_dept.show('@Url.Content("~/JC/Dept/Modify")?id='+[rowData.id][0],"编辑单位信息");
+                }
+            });
+
+        });
+    </script>
+}
+
+@section body{
+    @(
+    F.Panel()
+        .ShowBorder(false)
+        .ShowHeader(false)
+        .IsViewPort(true)
+        .Layout(LayoutType.Fit)
+        .Items(
+            F.Grid()
+                .EnableCollapse(false)
+                .Title("单位信息表")
+                .ShowHeader(true)
+                .ShowBorder(true)
+                .ID("gridDeptList")
+                .EnableCheckBoxSelect(true)
+                .AllowPaging(true)
+                .PageSize(20)
+                .DataIDField("ID")
+                .DataTextField("Name")
+                .Toolbars(
+                    F.Toolbar()
+                        .ID("btngroup")
+                        .Items(
+                            F.Button()
+                                .ID("btnAdd")
+                                .Text("新增")
+                                .Listener("click", "btnAdd();"),
+                            F.ToolbarSeparator()
+                                .MarginLeft(10)
+                                .MarginRight(10),
+                            F.Button()
+                                .ID("btnDelList")
+                                .Text("删除")
+                        )
+                )
+                .Columns(
+                    F.RowNumberField()
+                        .TextAlign(TextAlign.Center),
+                    F.RenderField()
+                        .HeaderText("删除")
+                        .Width(50)
+                        .TextAlign(TextAlign.Center)
+                        .RendererFunction("btnDelete"),
+                    F.RenderField()
+                        .HeaderText("编辑")
+                        .TextAlign(TextAlign.Center)
+                        .Width(50)
+                        .RendererFunction("btnEdit"),
+                    F.RenderField()
+                        .HeaderText("单位编号")
+                        .DataField("ID")
+                        .TextAlign(TextAlign.Center)
+                        .Width(100),
+                    F.RenderField()
+                        .HeaderText("单位名称")
+                        .DataField("Name")
+                        .TextAlign(TextAlign.Center)
+                        .Width(80)
+                )
+                .DataSource(ViewBag.gridDept)
+        )
+
+    )
+    @(
+    F.Window()
+        .Hidden(true)
+        .Height(300)
+        .Width(600)
+        .IsModal(true)
+        .Target(Target.Top)
+        .EnableResize(true)
+        .EnableMaximize(true)
+        .EnableIFrame(true)
+        .ID("window_dept")
+    )
+
+}
+

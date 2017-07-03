@@ -1,0 +1,58 @@
+C:\Users\lynn\Desktop\SGK\FineUIMvc.EmptyProject\bin\FineUIMvc.EmptyProject.dll.config
+C:\Users\lynn\Desktop\SGK\FineUIMvc.EmptyProject\bin\FineUIMvc.EmptyProject.dll
+C:\Users\lynn\Desktop\SGK\FineUIMvc.EmptyProject\bin\FineUIMvc.EmptyProject.pdb
+C:\Users\lynn\Desktop\SGK\FineUIMvc.EmptyProject\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\lynn\Desktop\SGK\FineUIMvc.EmptyProject\bin\Newtonsoft.Json.dll
+C:\Users\lynn\Desktop\SGK\FineUIMvc.EmptyProject\bin\System.Web.Helpers.dll
+C:\Users\lynn\Desktop\SGK\FineUIMvc.EmptyProject\bin\System.Web.Mvc.dll
+C:\Users\lynn\Desktop\SGK\FineUIMvc.EmptyProject\bin\System.Web.Optimization.dll
+C:\Users\lynn\Desktop\SGK\FineUIMvc.EmptyProject\bin\System.Web.Razor.dll
+C:\Users\lynn\Desktop\SGK\FineUIMvc.EmptyProject\bin\System.Web.WebPages.Deployment.dll
+C:\Users\lynn\Desktop\SGK\FineUIMvc.EmptyProject\bin\System.Web.WebPages.dll
+C:\Users\lynn\Desktop\SGK\FineUIMvc.EmptyProject\bin\System.Web.WebPages.Razor.dll
+C:\Users\lynn\Desktop\SGK\FineUIMvc.EmptyProject\bin\FineUIMvc.xml
+C:\Users\lynn\Desktop\SGK\FineUIMvc.EmptyProject\bin\System.Web.Helpers.xml
+C:\Users\lynn\Desktop\SGK\FineUIMvc.EmptyProject\bin\System.Web.Mvc.xml
+C:\Users\lynn\Desktop\SGK\FineUIMvc.EmptyProject\bin\System.Web.Optimization.xml
+C:\Users\lynn\Desktop\SGK\FineUIMvc.EmptyProject\bin\System.Web.Razor.xml
+C:\Users\lynn\Desktop\SGK\FineUIMvc.EmptyProject\bin\System.Web.WebPages.xml
+C:\Users\lynn\Desktop\SGK\FineUIMvc.EmptyProject\bin\System.Web.WebPages.Deployment.xml
+C:\Users\lynn\Desktop\SGK\FineUIMvc.EmptyProject\bin\System.Web.WebPages.Razor.xml
+C:\Users\lynn\Desktop\SGK\FineUIMvc.EmptyProject\bin\Newtonsoft.Json.xml
+C:\Users\lynn\Desktop\SGK\FineUIMvc.EmptyProject\obj\Debug\FineUIMvc.EmptyProject.csprojResolveAssemblyReference.cache
+C:\Users\lynn\Desktop\SGK\FineUIMvc.EmptyProject\obj\Debug\FineUIMvc.EmptyProject.dll
+C:\Users\lynn\Desktop\SGK\FineUIMvc.EmptyProject\obj\Debug\FineUIMvc.EmptyProject.pdb
+C:\Users\lynn\Desktop\SGK\FineUIMvc.EmptyProject\bin\EntityFramework.dll
+C:\Users\lynn\Desktop\SGK\FineUIMvc.EmptyProject\bin\EntityFramework.SqlServer.dll
+C:\Users\lynn\Desktop\SGK\FineUIMvc.EmptyProject\bin\EntityFramework.xml
+C:\Users\lynn\Desktop\SGK\FineUIMvc.EmptyProject\bin\EntityFramework.SqlServer.xml
+C:\Users\lynn\Desktop\SGK\FineUIMvc.EmptyProject\bin\zh-Hans\EntityFramework.resources.dll
+C:\Users\Wong Jianming\Desktop\SGK\FineUIMvc.EmptyProject\bin\FineUIMvc.EmptyProject.dll.config
+C:\Users\Wong Jianming\Desktop\SGK\FineUIMvc.EmptyProject\bin\FineUIMvc.EmptyProject.dll
+C:\Users\Wong Jianming\Desktop\SGK\FineUIMvc.EmptyProject\bin\FineUIMvc.EmptyProject.pdb
+C:\Users\Wong Jianming\Desktop\SGK\FineUIMvc.EmptyProject\bin\EntityFramework.dll
+C:\Users\Wong Jianming\Desktop\SGK\FineUIMvc.EmptyProject\bin\EntityFramework.SqlServer.dll
+C:\Users\Wong Jianming\Desktop\SGK\FineUIMvc.EmptyProject\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Wong Jianming\Desktop\SGK\FineUIMvc.EmptyProject\bin\Newtonsoft.Json.dll
+C:\Users\Wong Jianming\Desktop\SGK\FineUIMvc.EmptyProject\bin\System.Web.Helpers.dll
+C:\Users\Wong Jianming\Desktop\SGK\FineUIMvc.EmptyProject\bin\System.Web.Mvc.dll
+C:\Users\Wong Jianming\Desktop\SGK\FineUIMvc.EmptyProject\bin\System.Web.Optimization.dll
+C:\Users\Wong Jianming\Desktop\SGK\FineUIMvc.EmptyProject\bin\System.Web.Razor.dll
+C:\Users\Wong Jianming\Desktop\SGK\FineUIMvc.EmptyProject\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Wong Jianming\Desktop\SGK\FineUIMvc.EmptyProject\bin\System.Web.WebPages.dll
+C:\Users\Wong Jianming\Desktop\SGK\FineUIMvc.EmptyProject\bin\System.Web.WebPages.Razor.dll
+C:\Users\Wong Jianming\Desktop\SGK\FineUIMvc.EmptyProject\bin\EntityFramework.xml
+C:\Users\Wong Jianming\Desktop\SGK\FineUIMvc.EmptyProject\bin\EntityFramework.SqlServer.xml
+C:\Users\Wong Jianming\Desktop\SGK\FineUIMvc.EmptyProject\bin\FineUIMvc.xml
+C:\Users\Wong Jianming\Desktop\SGK\FineUIMvc.EmptyProject\bin\System.Web.Helpers.xml
+C:\Users\Wong Jianming\Desktop\SGK\FineUIMvc.EmptyProject\bin\System.Web.Mvc.xml
+C:\Users\Wong Jianming\Desktop\SGK\FineUIMvc.EmptyProject\bin\System.Web.Optimization.xml
+C:\Users\Wong Jianming\Desktop\SGK\FineUIMvc.EmptyProject\bin\System.Web.Razor.xml
+C:\Users\Wong Jianming\Desktop\SGK\FineUIMvc.EmptyProject\bin\System.Web.WebPages.xml
+C:\Users\Wong Jianming\Desktop\SGK\FineUIMvc.EmptyProject\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Wong Jianming\Desktop\SGK\FineUIMvc.EmptyProject\bin\System.Web.WebPages.Razor.xml
+C:\Users\Wong Jianming\Desktop\SGK\FineUIMvc.EmptyProject\bin\Newtonsoft.Json.xml
+C:\Users\Wong Jianming\Desktop\SGK\FineUIMvc.EmptyProject\bin\zh-Hans\EntityFramework.resources.dll
+C:\Users\Wong Jianming\Desktop\SGK\FineUIMvc.EmptyProject\obj\Debug\FineUIMvc.EmptyProject.csprojResolveAssemblyReference.cache
+C:\Users\Wong Jianming\Desktop\SGK\FineUIMvc.EmptyProject\obj\Debug\FineUIMvc.EmptyProject.dll
+C:\Users\Wong Jianming\Desktop\SGK\FineUIMvc.EmptyProject\obj\Debug\FineUIMvc.EmptyProject.pdb

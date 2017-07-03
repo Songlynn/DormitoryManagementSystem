@@ -1,0 +1,103 @@
+C:\Users\Wong Jianming\Desktop\SGK\SGK\bin\SGK.dll.config
+C:\Users\Wong Jianming\Desktop\SGK\SGK\bin\SGK.dll
+C:\Users\Wong Jianming\Desktop\SGK\SGK\bin\SGK.pdb
+C:\Users\Wong Jianming\Desktop\SGK\SGK\bin\EntityFramework.dll
+C:\Users\Wong Jianming\Desktop\SGK\SGK\bin\EntityFramework.SqlServer.dll
+C:\Users\Wong Jianming\Desktop\SGK\SGK\bin\Microsoft.CSharp.dll
+C:\Users\Wong Jianming\Desktop\SGK\SGK\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Wong Jianming\Desktop\SGK\SGK\bin\Newtonsoft.Json.dll
+C:\Users\Wong Jianming\Desktop\SGK\SGK\bin\System.ComponentModel.DataAnnotations.dll
+C:\Users\Wong Jianming\Desktop\SGK\SGK\bin\System.Configuration.dll
+C:\Users\Wong Jianming\Desktop\SGK\SGK\bin\System.Data.DataSetExtensions.dll
+C:\Users\Wong Jianming\Desktop\SGK\SGK\bin\System.Data.dll
+C:\Users\Wong Jianming\Desktop\SGK\SGK\bin\System.dll
+C:\Users\Wong Jianming\Desktop\SGK\SGK\bin\System.Drawing.dll
+C:\Users\Wong Jianming\Desktop\SGK\SGK\bin\System.EnterpriseServices.dll
+C:\Users\Wong Jianming\Desktop\SGK\SGK\bin\System.Net.Http.dll
+C:\Users\Wong Jianming\Desktop\SGK\SGK\bin\System.Net.Http.WebRequest.dll
+C:\Users\Wong Jianming\Desktop\SGK\SGK\bin\System.Runtime.Serialization.dll
+C:\Users\Wong Jianming\Desktop\SGK\SGK\bin\System.Security.dll
+C:\Users\Wong Jianming\Desktop\SGK\SGK\bin\System.Web.Abstractions.dll
+C:\Users\Wong Jianming\Desktop\SGK\SGK\bin\System.Web.ApplicationServices.dll
+C:\Users\Wong Jianming\Desktop\SGK\SGK\bin\System.Web.dll
+C:\Users\Wong Jianming\Desktop\SGK\SGK\bin\System.Web.DynamicData.dll
+C:\Users\Wong Jianming\Desktop\SGK\SGK\bin\System.Web.Entity.dll
+C:\Users\Wong Jianming\Desktop\SGK\SGK\bin\System.Web.Extensions.dll
+C:\Users\Wong Jianming\Desktop\SGK\SGK\bin\System.Web.Helpers.dll
+C:\Users\Wong Jianming\Desktop\SGK\SGK\bin\System.Web.Mvc.dll
+C:\Users\Wong Jianming\Desktop\SGK\SGK\bin\System.Web.Optimization.dll
+C:\Users\Wong Jianming\Desktop\SGK\SGK\bin\System.Web.Razor.dll
+C:\Users\Wong Jianming\Desktop\SGK\SGK\bin\System.Web.Routing.dll
+C:\Users\Wong Jianming\Desktop\SGK\SGK\bin\System.Web.Services.dll
+C:\Users\Wong Jianming\Desktop\SGK\SGK\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Wong Jianming\Desktop\SGK\SGK\bin\System.Web.WebPages.dll
+C:\Users\Wong Jianming\Desktop\SGK\SGK\bin\System.Web.WebPages.Razor.dll
+C:\Users\Wong Jianming\Desktop\SGK\SGK\bin\System.Xml.dll
+C:\Users\Wong Jianming\Desktop\SGK\SGK\bin\System.Xml.Linq.dll
+C:\Users\Wong Jianming\Desktop\SGK\SGK\bin\EntityFramework.xml
+C:\Users\Wong Jianming\Desktop\SGK\SGK\bin\EntityFramework.SqlServer.xml
+C:\Users\Wong Jianming\Desktop\SGK\SGK\bin\System.Web.Helpers.xml
+C:\Users\Wong Jianming\Desktop\SGK\SGK\bin\System.Web.Mvc.xml
+C:\Users\Wong Jianming\Desktop\SGK\SGK\bin\System.Web.Optimization.xml
+C:\Users\Wong Jianming\Desktop\SGK\SGK\bin\System.Web.Razor.xml
+C:\Users\Wong Jianming\Desktop\SGK\SGK\bin\System.Web.WebPages.xml
+C:\Users\Wong Jianming\Desktop\SGK\SGK\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Wong Jianming\Desktop\SGK\SGK\bin\System.Web.WebPages.Razor.xml
+C:\Users\Wong Jianming\Desktop\SGK\SGK\bin\Newtonsoft.Json.xml
+C:\Users\Wong Jianming\Desktop\SGK\SGK\bin\zh-Hans\EntityFramework.resources.dll
+C:\Users\Wong Jianming\Desktop\SGK\SGK\obj\Debug\SGK.dll
+C:\Users\Wong Jianming\Desktop\SGK\SGK\obj\Debug\SGK.pdb
+C:\Users\Wong Jianming\Desktop\SGK\SGK\obj\Debug\SGK.csprojResolveAssemblyReference.cache
+C:\Users\lynn\Desktop\code\SGK\obj\Debug\SGK.csprojResolveAssemblyReference.cache
+C:\Users\lynn\Desktop\code\SGK\obj\Debug\SGK.dll
+C:\Users\lynn\Desktop\code\SGK\obj\Debug\SGK.pdb
+C:\Users\lynn\Desktop\code\SGK\bin\SGK.dll.config
+C:\Users\lynn\Desktop\code\SGK\bin\SGK.dll
+C:\Users\lynn\Desktop\code\SGK\bin\SGK.pdb
+C:\Users\lynn\Desktop\code\SGK\bin\EntityFramework.dll
+C:\Users\lynn\Desktop\code\SGK\bin\EntityFramework.SqlServer.dll
+C:\Users\lynn\Desktop\code\SGK\bin\Microsoft.CSharp.dll
+C:\Users\lynn\Desktop\code\SGK\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\lynn\Desktop\code\SGK\bin\Newtonsoft.Json.dll
+C:\Users\lynn\Desktop\code\SGK\bin\System.ComponentModel.DataAnnotations.dll
+C:\Users\lynn\Desktop\code\SGK\bin\System.Configuration.dll
+C:\Users\lynn\Desktop\code\SGK\bin\System.Data.DataSetExtensions.dll
+C:\Users\lynn\Desktop\code\SGK\bin\System.Data.dll
+C:\Users\lynn\Desktop\code\SGK\bin\System.dll
+C:\Users\lynn\Desktop\code\SGK\bin\System.Drawing.dll
+C:\Users\lynn\Desktop\code\SGK\bin\System.EnterpriseServices.dll
+C:\Users\lynn\Desktop\code\SGK\bin\System.Net.Http.dll
+C:\Users\lynn\Desktop\code\SGK\bin\System.Net.Http.WebRequest.dll
+C:\Users\lynn\Desktop\code\SGK\bin\System.Runtime.Serialization.dll
+C:\Users\lynn\Desktop\code\SGK\bin\System.Security.dll
+C:\Users\lynn\Desktop\code\SGK\bin\System.Web.Abstractions.dll
+C:\Users\lynn\Desktop\code\SGK\bin\System.Web.ApplicationServices.dll
+C:\Users\lynn\Desktop\code\SGK\bin\System.Web.dll
+C:\Users\lynn\Desktop\code\SGK\bin\System.Web.DynamicData.dll
+C:\Users\lynn\Desktop\code\SGK\bin\System.Web.Entity.dll
+C:\Users\lynn\Desktop\code\SGK\bin\System.Web.Extensions.dll
+C:\Users\lynn\Desktop\code\SGK\bin\System.Web.Helpers.dll
+C:\Users\lynn\Desktop\code\SGK\bin\System.Web.Mvc.dll
+C:\Users\lynn\Desktop\code\SGK\bin\System.Web.Optimization.dll
+C:\Users\lynn\Desktop\code\SGK\bin\System.Web.Razor.dll
+C:\Users\lynn\Desktop\code\SGK\bin\System.Web.Routing.dll
+C:\Users\lynn\Desktop\code\SGK\bin\System.Web.Services.dll
+C:\Users\lynn\Desktop\code\SGK\bin\System.Web.WebPages.Deployment.dll
+C:\Users\lynn\Desktop\code\SGK\bin\System.Web.WebPages.dll
+C:\Users\lynn\Desktop\code\SGK\bin\System.Web.WebPages.Razor.dll
+C:\Users\lynn\Desktop\code\SGK\bin\System.Xml.dll
+C:\Users\lynn\Desktop\code\SGK\bin\System.Xml.Linq.dll
+C:\Users\lynn\Desktop\code\SGK\bin\EntityFramework.xml
+C:\Users\lynn\Desktop\code\SGK\bin\EntityFramework.SqlServer.xml
+C:\Users\lynn\Desktop\code\SGK\bin\System.Web.Helpers.xml
+C:\Users\lynn\Desktop\code\SGK\bin\System.Web.Mvc.xml
+C:\Users\lynn\Desktop\code\SGK\bin\System.Web.Optimization.xml
+C:\Users\lynn\Desktop\code\SGK\bin\System.Web.Razor.xml
+C:\Users\lynn\Desktop\code\SGK\bin\System.Web.WebPages.xml
+C:\Users\lynn\Desktop\code\SGK\bin\System.Web.WebPages.Deployment.xml
+C:\Users\lynn\Desktop\code\SGK\bin\System.Web.WebPages.Razor.xml
+C:\Users\lynn\Desktop\code\SGK\bin\Newtonsoft.Json.xml
+C:\Users\lynn\Desktop\code\SGK\bin\zh-Hans\EntityFramework.resources.dll
+C:\Users\lynn\Desktop\code\SGK\bin\Microsoft.Owin.dll
+C:\Users\lynn\Desktop\code\SGK\bin\Owin.dll
+C:\Users\lynn\Desktop\code\SGK\bin\Microsoft.Owin.xml

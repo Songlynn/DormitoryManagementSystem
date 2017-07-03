@@ -1,0 +1,993 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="SGK_lynnModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="T_Account">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="varchar" MaxLength="64" Nullable="false" />
+          <Property Name="Psd" Type="varchar" MaxLength="64" />
+          <Property Name="Name" Type="varchar" MaxLength="64" />
+          <Property Name="Tel" Type="varchar" MaxLength="64" />
+          <Property Name="DeptID" Type="varchar" MaxLength="64" />
+          <Property Name="RoleID" Type="varchar" MaxLength="64" />
+        </EntityType>
+        <EntityType Name="T_Building">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="varchar" MaxLength="64" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="64" />
+          <Property Name="SZYQ" Type="varchar" MaxLength="64" />
+        </EntityType>
+        <EntityType Name="T_Campus">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="varchar" MaxLength="64" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="64" />
+        </EntityType>
+        <EntityType Name="T_Dept">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="varchar" MaxLength="64" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="64" />
+        </EntityType>
+        <EntityType Name="T_Dorm">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="varchar" MaxLength="64" Nullable="false" />
+          <Property Name="SSLD" Type="varchar" MaxLength="64" />
+          <Property Name="SSLC" Type="int" />
+          <Property Name="FJH" Type="varchar" MaxLength="64" />
+          <Property Name="SSLX" Type="char" MaxLength="1" />
+          <Property Name="ZSFY" Type="int" />
+          <Property Name="CWS" Type="int" />
+          <Property Name="KYCWS" Type="int" />
+          <Property Name="Sex" Type="char" MaxLength="1" />
+          <Property Name="DeptID" Type="varchar" MaxLength="128" />
+          <Property Name="Remark" Type="varchar" MaxLength="1024" />
+          <Property Name="Bed_01" Type="varchar" MaxLength="64" />
+          <Property Name="Bed_02" Type="varchar" MaxLength="64" />
+          <Property Name="Bed_03" Type="varchar" MaxLength="64" />
+          <Property Name="Bed_04" Type="varchar" MaxLength="64" />
+          <Property Name="Bed_05" Type="varchar" MaxLength="64" />
+          <Property Name="Bed_06" Type="varchar" MaxLength="64" />
+          <Property Name="Bed_07" Type="varchar" MaxLength="64" />
+          <Property Name="Bed_08" Type="varchar" MaxLength="64" />
+          <Property Name="Bed_09" Type="varchar" MaxLength="64" />
+          <Property Name="Bed_10" Type="varchar" MaxLength="64" />
+        </EntityType>
+        <EntityType Name="T_Region">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="varchar" MaxLength="64" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="64" />
+          <Property Name="SZXQ" Type="varchar" MaxLength="64" />
+        </EntityType>
+        <EntityType Name="T_Report">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="varchar" MaxLength="64" Nullable="false" />
+          <Property Name="AccountID" Type="varchar" MaxLength="64" />
+          <Property Name="Type" Type="char" MaxLength="1" />
+          <Property Name="Time" Type="datetime" />
+          <Property Name="Num" Type="int" />
+          <Property Name="Reason" Type="varchar" MaxLength="1024" />
+          <Property Name="AuditID" Type="varchar" MaxLength="64" />
+          <Property Name="RejectReason" Type="varchar" MaxLength="1024" />
+          <Property Name="Status" Type="char" MaxLength="1" />
+          <Property Name="Remark" Type="varchar" MaxLength="1024" />
+        </EntityType>
+        <EntityType Name="T_Role">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Name" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="T_Student">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="varchar" MaxLength="64" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="64" />
+          <Property Name="ClassName" Type="varchar" MaxLength="64" />
+          <Property Name="Sex" Type="char" MaxLength="1" />
+          <Property Name="Tel" Type="varchar" MaxLength="64" />
+          <Property Name="Email" Type="varchar" MaxLength="64" />
+          <Property Name="DeptID" Type="varchar" MaxLength="64" />
+          <Property Name="College" Type="varchar" MaxLength="64" />
+          <Property Name="Major" Type="varchar" MaxLength="64" />
+          <Property Name="Year" Type="int" />
+          <Property Name="StuStatus" Type="char" MaxLength="1" />
+          <Property Name="Status" Type="varchar" MaxLength="64" />
+          <Property Name="DormID" Type="varchar" MaxLength="64" />
+          <Property Name="Remark" Type="varchar" MaxLength="1024" />
+        </EntityType>
+        <EntityType Name="T_SubReport">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="varchar" MaxLength="64" Nullable="false" />
+          <Property Name="ReportID" Type="varchar" MaxLength="64" />
+          <Property Name="StudentID" Type="varchar" MaxLength="64" />
+          <Property Name="OutDormID" Type="varchar" MaxLength="64" />
+          <Property Name="InDormID" Type="varchar" MaxLength="64" />
+          <Property Name="PriceChanged" Type="char" MaxLength="1" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“SGK_lynn.dbo.vw_Account”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="vw_Account">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="varchar" MaxLength="64" Nullable="false" />
+          <Property Name="Psd" Type="varchar" MaxLength="64" />
+          <Property Name="Name" Type="varchar" MaxLength="64" />
+          <Property Name="Tel" Type="varchar" MaxLength="64" />
+          <Property Name="DeptID" Type="varchar" MaxLength="64" />
+          <Property Name="RoleID" Type="varchar" MaxLength="64" />
+          <Property Name="Dept" Type="varchar" MaxLength="64" />
+          <Property Name="Role" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“SGK_lynn.dbo.vw_Building”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="vw_Building">
+          <Key>
+            <PropertyRef Name="BuildingID" />
+          </Key>
+          <Property Name="BuildingID" Type="varchar" MaxLength="64" Nullable="false" />
+          <Property Name="Building" Type="varchar" MaxLength="64" />
+          <Property Name="RegionID" Type="varchar" MaxLength="64" />
+          <Property Name="Region" Type="varchar" MaxLength="64" />
+          <Property Name="CampusID" Type="varchar" MaxLength="64" />
+          <Property Name="Campus" Type="varchar" MaxLength="64" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“SGK_lynn.dbo.vw_Dorm”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="vw_Dorm">
+          <Key>
+            <PropertyRef Name="DormID" />
+          </Key>
+          <Property Name="DormID" Type="varchar" MaxLength="64" Nullable="false" />
+          <Property Name="BuildingID" Type="varchar" MaxLength="64" />
+          <Property Name="SSLC" Type="int" />
+          <Property Name="FJH" Type="varchar" MaxLength="64" />
+          <Property Name="SSLX" Type="char" MaxLength="1" />
+          <Property Name="ZSFY" Type="int" />
+          <Property Name="CWS" Type="int" />
+          <Property Name="KYCWS" Type="int" />
+          <Property Name="Sex" Type="char" MaxLength="1" />
+          <Property Name="DeptID" Type="varchar" MaxLength="128" />
+          <Property Name="Remark" Type="varchar" MaxLength="1024" />
+          <Property Name="Bed_01" Type="varchar" MaxLength="64" />
+          <Property Name="Bed_02" Type="varchar" MaxLength="64" />
+          <Property Name="Bed_03" Type="varchar" MaxLength="64" />
+          <Property Name="Bed_04" Type="varchar" MaxLength="64" />
+          <Property Name="Bed_05" Type="varchar" MaxLength="64" />
+          <Property Name="Bed_06" Type="varchar" MaxLength="64" />
+          <Property Name="Bed_07" Type="varchar" MaxLength="64" />
+          <Property Name="Bed_08" Type="varchar" MaxLength="64" />
+          <Property Name="Bed_09" Type="varchar" MaxLength="64" />
+          <Property Name="Bed_10" Type="varchar" MaxLength="64" />
+          <Property Name="Building" Type="varchar" MaxLength="64" />
+          <Property Name="RegionID" Type="varchar" MaxLength="64" />
+          <Property Name="Region" Type="varchar" MaxLength="64" />
+          <Property Name="CampusID" Type="varchar" MaxLength="64" />
+          <Property Name="Campus" Type="varchar" MaxLength="64" />
+          <Property Name="Stu_01" Type="varchar" MaxLength="64" />
+          <Property Name="Stu_02" Type="varchar" MaxLength="64" />
+          <Property Name="Stu_03" Type="varchar" MaxLength="64" />
+          <Property Name="Stu_04" Type="varchar" MaxLength="64" />
+          <Property Name="Stu_05" Type="varchar" MaxLength="64" />
+          <Property Name="Stu_06" Type="varchar" MaxLength="64" />
+          <Property Name="Stu_07" Type="varchar" MaxLength="64" />
+          <Property Name="Stu_08" Type="varchar" MaxLength="64" />
+          <Property Name="Stu_09" Type="varchar" MaxLength="64" />
+          <Property Name="Stu_10" Type="varchar" MaxLength="64" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“SGK_lynn.dbo.vw_Region”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="vw_Region">
+          <Key>
+            <PropertyRef Name="RegionID" />
+          </Key>
+          <Property Name="RegionID" Type="varchar" MaxLength="64" Nullable="false" />
+          <Property Name="Region" Type="varchar" MaxLength="64" />
+          <Property Name="CampusID" Type="varchar" MaxLength="64" />
+          <Property Name="Campus" Type="varchar" MaxLength="64" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“SGK_lynn.dbo.vw_Report”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="vw_Report">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="varchar" MaxLength="64" Nullable="false" />
+          <Property Name="AccountID" Type="varchar" MaxLength="64" />
+          <Property Name="Type" Type="char" MaxLength="1" />
+          <Property Name="Time" Type="datetime" />
+          <Property Name="Num" Type="int" />
+          <Property Name="Reason" Type="varchar" MaxLength="1024" />
+          <Property Name="AuditID" Type="varchar" MaxLength="64" />
+          <Property Name="RejectReason" Type="varchar" MaxLength="1024" />
+          <Property Name="Status" Type="char" MaxLength="1" />
+          <Property Name="Remark" Type="varchar" MaxLength="1024" />
+          <Property Name="Name" Type="varchar" MaxLength="64" />
+          <Property Name="AuditName" Type="varchar" MaxLength="64" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“SGK_lynn.dbo.vw_Student”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="vw_Student">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="varchar" MaxLength="64" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="64" />
+          <Property Name="ClassName" Type="varchar" MaxLength="64" />
+          <Property Name="Sex" Type="char" MaxLength="1" />
+          <Property Name="Tel" Type="varchar" MaxLength="64" />
+          <Property Name="Email" Type="varchar" MaxLength="64" />
+          <Property Name="DeptID" Type="varchar" MaxLength="64" />
+          <Property Name="College" Type="varchar" MaxLength="64" />
+          <Property Name="Major" Type="varchar" MaxLength="64" />
+          <Property Name="Year" Type="int" />
+          <Property Name="StuStatus" Type="char" MaxLength="1" />
+          <Property Name="Status" Type="varchar" MaxLength="64" />
+          <Property Name="DormID" Type="varchar" MaxLength="64" />
+          <Property Name="Remark" Type="varchar" MaxLength="1024" />
+          <Property Name="Dept" Type="varchar" MaxLength="64" />
+          <Property Name="Campus" Type="varchar" MaxLength="64" />
+          <Property Name="Region" Type="varchar" MaxLength="64" />
+          <Property Name="Building" Type="varchar" MaxLength="64" />
+          <Property Name="FJH" Type="varchar" MaxLength="64" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“SGK_lynn.dbo.vw_SubReport”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="vw_SubReport">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="varchar" MaxLength="64" Nullable="false" />
+          <Property Name="ReportID" Type="varchar" MaxLength="64" />
+          <Property Name="StudentID" Type="varchar" MaxLength="64" />
+          <Property Name="OutDormID" Type="varchar" MaxLength="64" />
+          <Property Name="InDormID" Type="varchar" MaxLength="64" />
+          <Property Name="PriceChanged" Type="char" MaxLength="1" />
+          <Property Name="StuName" Type="varchar" MaxLength="64" />
+          <Property Name="OutCampus" Type="varchar" MaxLength="64" />
+          <Property Name="OutRegion" Type="varchar" MaxLength="64" />
+          <Property Name="OutBuilding" Type="varchar" MaxLength="64" />
+          <Property Name="OutFJH" Type="varchar" MaxLength="64" />
+          <Property Name="InCampus" Type="varchar" MaxLength="64" />
+          <Property Name="InRegion" Type="varchar" MaxLength="64" />
+          <Property Name="InBuilding" Type="varchar" MaxLength="64" />
+          <Property Name="InFJH" Type="varchar" MaxLength="64" />
+        </EntityType>
+        <EntityContainer Name="SGK_lynnModelStoreContainer">
+          <EntitySet Name="T_Account" EntityType="Self.T_Account" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_Building" EntityType="Self.T_Building" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_Campus" EntityType="Self.T_Campus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_Dept" EntityType="Self.T_Dept" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_Dorm" EntityType="Self.T_Dorm" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_Region" EntityType="Self.T_Region" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_Report" EntityType="Self.T_Report" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_Role" EntityType="Self.T_Role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_Student" EntityType="Self.T_Student" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_SubReport" EntityType="Self.T_SubReport" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="vw_Account" EntityType="Self.vw_Account" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vw_Account].[ID] AS [ID], 
+    [vw_Account].[Psd] AS [Psd], 
+    [vw_Account].[Name] AS [Name], 
+    [vw_Account].[Tel] AS [Tel], 
+    [vw_Account].[DeptID] AS [DeptID], 
+    [vw_Account].[RoleID] AS [RoleID], 
+    [vw_Account].[Dept] AS [Dept], 
+    [vw_Account].[Role] AS [Role]
+    FROM [dbo].[vw_Account] AS [vw_Account]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vw_Building" EntityType="Self.vw_Building" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vw_Building].[BuildingID] AS [BuildingID], 
+    [vw_Building].[Building] AS [Building], 
+    [vw_Building].[RegionID] AS [RegionID], 
+    [vw_Building].[Region] AS [Region], 
+    [vw_Building].[CampusID] AS [CampusID], 
+    [vw_Building].[Campus] AS [Campus]
+    FROM [dbo].[vw_Building] AS [vw_Building]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vw_Dorm" EntityType="Self.vw_Dorm" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vw_Dorm].[DormID] AS [DormID], 
+    [vw_Dorm].[BuildingID] AS [BuildingID], 
+    [vw_Dorm].[SSLC] AS [SSLC], 
+    [vw_Dorm].[FJH] AS [FJH], 
+    [vw_Dorm].[SSLX] AS [SSLX], 
+    [vw_Dorm].[ZSFY] AS [ZSFY], 
+    [vw_Dorm].[CWS] AS [CWS], 
+    [vw_Dorm].[KYCWS] AS [KYCWS], 
+    [vw_Dorm].[Sex] AS [Sex], 
+    [vw_Dorm].[DeptID] AS [DeptID], 
+    [vw_Dorm].[Remark] AS [Remark], 
+    [vw_Dorm].[Bed_01] AS [Bed_01], 
+    [vw_Dorm].[Bed_02] AS [Bed_02], 
+    [vw_Dorm].[Bed_03] AS [Bed_03], 
+    [vw_Dorm].[Bed_04] AS [Bed_04], 
+    [vw_Dorm].[Bed_05] AS [Bed_05], 
+    [vw_Dorm].[Bed_06] AS [Bed_06], 
+    [vw_Dorm].[Bed_07] AS [Bed_07], 
+    [vw_Dorm].[Bed_08] AS [Bed_08], 
+    [vw_Dorm].[Bed_09] AS [Bed_09], 
+    [vw_Dorm].[Bed_10] AS [Bed_10], 
+    [vw_Dorm].[Building] AS [Building], 
+    [vw_Dorm].[RegionID] AS [RegionID], 
+    [vw_Dorm].[Region] AS [Region], 
+    [vw_Dorm].[CampusID] AS [CampusID], 
+    [vw_Dorm].[Campus] AS [Campus], 
+    [vw_Dorm].[Stu_01] AS [Stu_01], 
+    [vw_Dorm].[Stu_02] AS [Stu_02], 
+    [vw_Dorm].[Stu_03] AS [Stu_03], 
+    [vw_Dorm].[Stu_04] AS [Stu_04], 
+    [vw_Dorm].[Stu_05] AS [Stu_05], 
+    [vw_Dorm].[Stu_06] AS [Stu_06], 
+    [vw_Dorm].[Stu_07] AS [Stu_07], 
+    [vw_Dorm].[Stu_08] AS [Stu_08], 
+    [vw_Dorm].[Stu_09] AS [Stu_09], 
+    [vw_Dorm].[Stu_10] AS [Stu_10]
+    FROM [dbo].[vw_Dorm] AS [vw_Dorm]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vw_Region" EntityType="Self.vw_Region" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vw_Region].[RegionID] AS [RegionID], 
+    [vw_Region].[Region] AS [Region], 
+    [vw_Region].[CampusID] AS [CampusID], 
+    [vw_Region].[Campus] AS [Campus]
+    FROM [dbo].[vw_Region] AS [vw_Region]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vw_Report" EntityType="Self.vw_Report" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vw_Report].[ID] AS [ID], 
+    [vw_Report].[AccountID] AS [AccountID], 
+    [vw_Report].[Type] AS [Type], 
+    [vw_Report].[Time] AS [Time], 
+    [vw_Report].[Num] AS [Num], 
+    [vw_Report].[Reason] AS [Reason], 
+    [vw_Report].[AuditID] AS [AuditID], 
+    [vw_Report].[RejectReason] AS [RejectReason], 
+    [vw_Report].[Status] AS [Status], 
+    [vw_Report].[Remark] AS [Remark], 
+    [vw_Report].[Name] AS [Name], 
+    [vw_Report].[AuditName] AS [AuditName]
+    FROM [dbo].[vw_Report] AS [vw_Report]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vw_Student" EntityType="Self.vw_Student" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vw_Student].[ID] AS [ID], 
+    [vw_Student].[Name] AS [Name], 
+    [vw_Student].[ClassName] AS [ClassName], 
+    [vw_Student].[Sex] AS [Sex], 
+    [vw_Student].[Tel] AS [Tel], 
+    [vw_Student].[Email] AS [Email], 
+    [vw_Student].[DeptID] AS [DeptID], 
+    [vw_Student].[College] AS [College], 
+    [vw_Student].[Major] AS [Major], 
+    [vw_Student].[Year] AS [Year], 
+    [vw_Student].[StuStatus] AS [StuStatus], 
+    [vw_Student].[Status] AS [Status], 
+    [vw_Student].[DormID] AS [DormID], 
+    [vw_Student].[Remark] AS [Remark], 
+    [vw_Student].[Dept] AS [Dept], 
+    [vw_Student].[Campus] AS [Campus], 
+    [vw_Student].[Region] AS [Region], 
+    [vw_Student].[Building] AS [Building], 
+    [vw_Student].[FJH] AS [FJH]
+    FROM [dbo].[vw_Student] AS [vw_Student]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vw_SubReport" EntityType="Self.vw_SubReport" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vw_SubReport].[ID] AS [ID], 
+    [vw_SubReport].[ReportID] AS [ReportID], 
+    [vw_SubReport].[StudentID] AS [StudentID], 
+    [vw_SubReport].[OutDormID] AS [OutDormID], 
+    [vw_SubReport].[InDormID] AS [InDormID], 
+    [vw_SubReport].[PriceChanged] AS [PriceChanged], 
+    [vw_SubReport].[StuName] AS [StuName], 
+    [vw_SubReport].[OutCampus] AS [OutCampus], 
+    [vw_SubReport].[OutRegion] AS [OutRegion], 
+    [vw_SubReport].[OutBuilding] AS [OutBuilding], 
+    [vw_SubReport].[OutFJH] AS [OutFJH], 
+    [vw_SubReport].[InCampus] AS [InCampus], 
+    [vw_SubReport].[InRegion] AS [InRegion], 
+    [vw_SubReport].[InBuilding] AS [InBuilding], 
+    [vw_SubReport].[InFJH] AS [InFJH]
+    FROM [dbo].[vw_SubReport] AS [vw_SubReport]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SGK_lynnModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="T_Account">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Psd" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="Tel" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="DeptID" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="RoleID" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="T_Building">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="SZYQ" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="T_Campus">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="T_Dept">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="T_Dorm">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SSLD" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="SSLC" Type="Int32" />
+          <Property Name="FJH" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="SSLX" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="ZSFY" Type="Int32" />
+          <Property Name="CWS" Type="Int32" />
+          <Property Name="KYCWS" Type="Int32" />
+          <Property Name="Sex" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="DeptID" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="Remark" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" />
+          <Property Name="Bed_01" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="Bed_02" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="Bed_03" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="Bed_04" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="Bed_05" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="Bed_06" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="Bed_07" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="Bed_08" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="Bed_09" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="Bed_10" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="T_Region">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="SZXQ" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="T_Report">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AccountID" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="Type" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Time" Type="DateTime" Precision="3" />
+          <Property Name="Num" Type="Int32" />
+          <Property Name="Reason" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" />
+          <Property Name="AuditID" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="RejectReason" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Remark" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="T_Role">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="T_Student">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="ClassName" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="Sex" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Tel" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="DeptID" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="College" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="Major" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="Year" Type="Int32" />
+          <Property Name="StuStatus" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Status" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="DormID" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="Remark" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="T_SubReport">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ReportID" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="StudentID" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="OutDormID" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="InDormID" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="PriceChanged" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+        </EntityType>
+        <EntityType Name="vw_Account">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Psd" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="Tel" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="DeptID" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="RoleID" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="Dept" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="Role" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="vw_Building">
+          <Key>
+            <PropertyRef Name="BuildingID" />
+          </Key>
+          <Property Name="BuildingID" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Building" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="RegionID" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="Region" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="CampusID" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="Campus" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="vw_Dorm">
+          <Key>
+            <PropertyRef Name="DormID" />
+          </Key>
+          <Property Name="DormID" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="BuildingID" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="SSLC" Type="Int32" />
+          <Property Name="FJH" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="SSLX" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="ZSFY" Type="Int32" />
+          <Property Name="CWS" Type="Int32" />
+          <Property Name="KYCWS" Type="Int32" />
+          <Property Name="Sex" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="DeptID" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="Remark" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" />
+          <Property Name="Bed_01" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="Bed_02" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="Bed_03" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="Bed_04" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="Bed_05" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="Bed_06" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="Bed_07" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="Bed_08" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="Bed_09" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="Bed_10" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="Building" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="RegionID" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="Region" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="CampusID" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="Campus" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="Stu_01" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="Stu_02" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="Stu_03" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="Stu_04" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="Stu_05" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="Stu_06" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="Stu_07" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="Stu_08" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="Stu_09" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="Stu_10" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="vw_Region">
+          <Key>
+            <PropertyRef Name="RegionID" />
+          </Key>
+          <Property Name="RegionID" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Region" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="CampusID" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="Campus" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="vw_Student">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="ClassName" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="Sex" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Tel" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="DeptID" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="College" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="Major" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="Year" Type="Int32" />
+          <Property Name="StuStatus" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Status" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="DormID" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="Remark" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" />
+          <Property Name="Dept" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="Campus" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="Region" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="Building" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="FJH" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="SGK_lynnEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="T_Account" EntityType="Self.T_Account" />
+          <EntitySet Name="T_Building" EntityType="Self.T_Building" />
+          <EntitySet Name="T_Campus" EntityType="Self.T_Campus" />
+          <EntitySet Name="T_Dept" EntityType="Self.T_Dept" />
+          <EntitySet Name="T_Dorm" EntityType="Self.T_Dorm" />
+          <EntitySet Name="T_Region" EntityType="Self.T_Region" />
+          <EntitySet Name="T_Report" EntityType="Self.T_Report" />
+          <EntitySet Name="T_Role" EntityType="Self.T_Role" />
+          <EntitySet Name="T_Student" EntityType="Self.T_Student" />
+          <EntitySet Name="T_SubReport" EntityType="Self.T_SubReport" />
+          <EntitySet Name="vw_Account" EntityType="Self.vw_Account" />
+          <EntitySet Name="vw_Building" EntityType="Self.vw_Building" />
+          <EntitySet Name="vw_Dorm" EntityType="Self.vw_Dorm" />
+          <EntitySet Name="vw_Region" EntityType="Self.vw_Region" />
+          <EntitySet Name="vw_Student" EntityType="Self.vw_Student" />
+          <EntitySet Name="vw_Report" EntityType="SGK_lynnModel.vw_Report" />
+          <EntitySet Name="vw_SubReport" EntityType="SGK_lynnModel.vw_SubReport" />
+        </EntityContainer>
+        <EntityType Name="vw_Report">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="AccountID" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="Type" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Time" Type="DateTime" Precision="3" />
+          <Property Name="Num" Type="Int32" />
+          <Property Name="Reason" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" />
+          <Property Name="AuditID" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="RejectReason" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Remark" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="AuditName" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="vw_SubReport">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="ReportID" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="StudentID" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="OutDormID" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="InDormID" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="PriceChanged" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="StuName" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="OutCampus" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="OutRegion" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="OutBuilding" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="OutFJH" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="InCampus" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="InRegion" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="InBuilding" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="InFJH" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SGK_lynnModelStoreContainer" CdmEntityContainer="SGK_lynnEntities">
+          <EntitySetMapping Name="T_Account">
+            <EntityTypeMapping TypeName="SGK_lynnModel.T_Account">
+              <MappingFragment StoreEntitySet="T_Account">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Psd" ColumnName="Psd" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Tel" ColumnName="Tel" />
+                <ScalarProperty Name="DeptID" ColumnName="DeptID" />
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_Building">
+            <EntityTypeMapping TypeName="SGK_lynnModel.T_Building">
+              <MappingFragment StoreEntitySet="T_Building">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="SZYQ" ColumnName="SZYQ" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_Campus">
+            <EntityTypeMapping TypeName="SGK_lynnModel.T_Campus">
+              <MappingFragment StoreEntitySet="T_Campus">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_Dept">
+            <EntityTypeMapping TypeName="SGK_lynnModel.T_Dept">
+              <MappingFragment StoreEntitySet="T_Dept">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_Dorm">
+            <EntityTypeMapping TypeName="SGK_lynnModel.T_Dorm">
+              <MappingFragment StoreEntitySet="T_Dorm">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="SSLD" ColumnName="SSLD" />
+                <ScalarProperty Name="SSLC" ColumnName="SSLC" />
+                <ScalarProperty Name="FJH" ColumnName="FJH" />
+                <ScalarProperty Name="SSLX" ColumnName="SSLX" />
+                <ScalarProperty Name="ZSFY" ColumnName="ZSFY" />
+                <ScalarProperty Name="CWS" ColumnName="CWS" />
+                <ScalarProperty Name="KYCWS" ColumnName="KYCWS" />
+                <ScalarProperty Name="Sex" ColumnName="Sex" />
+                <ScalarProperty Name="DeptID" ColumnName="DeptID" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="Bed_01" ColumnName="Bed_01" />
+                <ScalarProperty Name="Bed_02" ColumnName="Bed_02" />
+                <ScalarProperty Name="Bed_03" ColumnName="Bed_03" />
+                <ScalarProperty Name="Bed_04" ColumnName="Bed_04" />
+                <ScalarProperty Name="Bed_05" ColumnName="Bed_05" />
+                <ScalarProperty Name="Bed_06" ColumnName="Bed_06" />
+                <ScalarProperty Name="Bed_07" ColumnName="Bed_07" />
+                <ScalarProperty Name="Bed_08" ColumnName="Bed_08" />
+                <ScalarProperty Name="Bed_09" ColumnName="Bed_09" />
+                <ScalarProperty Name="Bed_10" ColumnName="Bed_10" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_Region">
+            <EntityTypeMapping TypeName="SGK_lynnModel.T_Region">
+              <MappingFragment StoreEntitySet="T_Region">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="SZXQ" ColumnName="SZXQ" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_Report">
+            <EntityTypeMapping TypeName="SGK_lynnModel.T_Report">
+              <MappingFragment StoreEntitySet="T_Report">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="AccountID" ColumnName="AccountID" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Time" ColumnName="Time" />
+                <ScalarProperty Name="Num" ColumnName="Num" />
+                <ScalarProperty Name="Reason" ColumnName="Reason" />
+                <ScalarProperty Name="AuditID" ColumnName="AuditID" />
+                <ScalarProperty Name="RejectReason" ColumnName="RejectReason" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_Role">
+            <EntityTypeMapping TypeName="SGK_lynnModel.T_Role">
+              <MappingFragment StoreEntitySet="T_Role">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_Student">
+            <EntityTypeMapping TypeName="SGK_lynnModel.T_Student">
+              <MappingFragment StoreEntitySet="T_Student">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ClassName" ColumnName="ClassName" />
+                <ScalarProperty Name="Sex" ColumnName="Sex" />
+                <ScalarProperty Name="Tel" ColumnName="Tel" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="DeptID" ColumnName="DeptID" />
+                <ScalarProperty Name="College" ColumnName="College" />
+                <ScalarProperty Name="Major" ColumnName="Major" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="StuStatus" ColumnName="StuStatus" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="DormID" ColumnName="DormID" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_SubReport">
+            <EntityTypeMapping TypeName="SGK_lynnModel.T_SubReport">
+              <MappingFragment StoreEntitySet="T_SubReport">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ReportID" ColumnName="ReportID" />
+                <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+                <ScalarProperty Name="OutDormID" ColumnName="OutDormID" />
+                <ScalarProperty Name="InDormID" ColumnName="InDormID" />
+                <ScalarProperty Name="PriceChanged" ColumnName="PriceChanged" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vw_Account">
+            <EntityTypeMapping TypeName="SGK_lynnModel.vw_Account">
+              <MappingFragment StoreEntitySet="vw_Account">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Psd" ColumnName="Psd" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Tel" ColumnName="Tel" />
+                <ScalarProperty Name="DeptID" ColumnName="DeptID" />
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+                <ScalarProperty Name="Dept" ColumnName="Dept" />
+                <ScalarProperty Name="Role" ColumnName="Role" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vw_Building">
+            <EntityTypeMapping TypeName="SGK_lynnModel.vw_Building">
+              <MappingFragment StoreEntitySet="vw_Building">
+                <ScalarProperty Name="BuildingID" ColumnName="BuildingID" />
+                <ScalarProperty Name="Building" ColumnName="Building" />
+                <ScalarProperty Name="RegionID" ColumnName="RegionID" />
+                <ScalarProperty Name="Region" ColumnName="Region" />
+                <ScalarProperty Name="CampusID" ColumnName="CampusID" />
+                <ScalarProperty Name="Campus" ColumnName="Campus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vw_Dorm">
+            <EntityTypeMapping TypeName="SGK_lynnModel.vw_Dorm">
+              <MappingFragment StoreEntitySet="vw_Dorm">
+                <ScalarProperty Name="DormID" ColumnName="DormID" />
+                <ScalarProperty Name="BuildingID" ColumnName="BuildingID" />
+                <ScalarProperty Name="SSLC" ColumnName="SSLC" />
+                <ScalarProperty Name="FJH" ColumnName="FJH" />
+                <ScalarProperty Name="SSLX" ColumnName="SSLX" />
+                <ScalarProperty Name="ZSFY" ColumnName="ZSFY" />
+                <ScalarProperty Name="CWS" ColumnName="CWS" />
+                <ScalarProperty Name="KYCWS" ColumnName="KYCWS" />
+                <ScalarProperty Name="Sex" ColumnName="Sex" />
+                <ScalarProperty Name="DeptID" ColumnName="DeptID" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="Bed_01" ColumnName="Bed_01" />
+                <ScalarProperty Name="Bed_02" ColumnName="Bed_02" />
+                <ScalarProperty Name="Bed_03" ColumnName="Bed_03" />
+                <ScalarProperty Name="Bed_04" ColumnName="Bed_04" />
+                <ScalarProperty Name="Bed_05" ColumnName="Bed_05" />
+                <ScalarProperty Name="Bed_06" ColumnName="Bed_06" />
+                <ScalarProperty Name="Bed_07" ColumnName="Bed_07" />
+                <ScalarProperty Name="Bed_08" ColumnName="Bed_08" />
+                <ScalarProperty Name="Bed_09" ColumnName="Bed_09" />
+                <ScalarProperty Name="Bed_10" ColumnName="Bed_10" />
+                <ScalarProperty Name="Building" ColumnName="Building" />
+                <ScalarProperty Name="RegionID" ColumnName="RegionID" />
+                <ScalarProperty Name="Region" ColumnName="Region" />
+                <ScalarProperty Name="CampusID" ColumnName="CampusID" />
+                <ScalarProperty Name="Campus" ColumnName="Campus" />
+                <ScalarProperty Name="Stu_01" ColumnName="Stu_01" />
+                <ScalarProperty Name="Stu_02" ColumnName="Stu_02" />
+                <ScalarProperty Name="Stu_03" ColumnName="Stu_03" />
+                <ScalarProperty Name="Stu_04" ColumnName="Stu_04" />
+                <ScalarProperty Name="Stu_05" ColumnName="Stu_05" />
+                <ScalarProperty Name="Stu_06" ColumnName="Stu_06" />
+                <ScalarProperty Name="Stu_07" ColumnName="Stu_07" />
+                <ScalarProperty Name="Stu_08" ColumnName="Stu_08" />
+                <ScalarProperty Name="Stu_09" ColumnName="Stu_09" />
+                <ScalarProperty Name="Stu_10" ColumnName="Stu_10" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vw_Region">
+            <EntityTypeMapping TypeName="SGK_lynnModel.vw_Region">
+              <MappingFragment StoreEntitySet="vw_Region">
+                <ScalarProperty Name="RegionID" ColumnName="RegionID" />
+                <ScalarProperty Name="Region" ColumnName="Region" />
+                <ScalarProperty Name="CampusID" ColumnName="CampusID" />
+                <ScalarProperty Name="Campus" ColumnName="Campus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vw_Student">
+            <EntityTypeMapping TypeName="SGK_lynnModel.vw_Student">
+              <MappingFragment StoreEntitySet="vw_Student">
+                <ScalarProperty Name="FJH" ColumnName="FJH" />
+                <ScalarProperty Name="Building" ColumnName="Building" />
+                <ScalarProperty Name="Region" ColumnName="Region" />
+                <ScalarProperty Name="Campus" ColumnName="Campus" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ClassName" ColumnName="ClassName" />
+                <ScalarProperty Name="Sex" ColumnName="Sex" />
+                <ScalarProperty Name="Tel" ColumnName="Tel" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="DeptID" ColumnName="DeptID" />
+                <ScalarProperty Name="College" ColumnName="College" />
+                <ScalarProperty Name="Major" ColumnName="Major" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="StuStatus" ColumnName="StuStatus" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="DormID" ColumnName="DormID" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="Dept" ColumnName="Dept" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vw_Report">
+            <EntityTypeMapping TypeName="SGK_lynnModel.vw_Report">
+              <MappingFragment StoreEntitySet="vw_Report">
+                <ScalarProperty Name="AuditName" ColumnName="AuditName" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="RejectReason" ColumnName="RejectReason" />
+                <ScalarProperty Name="AuditID" ColumnName="AuditID" />
+                <ScalarProperty Name="Reason" ColumnName="Reason" />
+                <ScalarProperty Name="Num" ColumnName="Num" />
+                <ScalarProperty Name="Time" ColumnName="Time" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="AccountID" ColumnName="AccountID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vw_SubReport">
+            <EntityTypeMapping TypeName="SGK_lynnModel.vw_SubReport">
+              <MappingFragment StoreEntitySet="vw_SubReport">
+                <ScalarProperty Name="InFJH" ColumnName="InFJH" />
+                <ScalarProperty Name="InBuilding" ColumnName="InBuilding" />
+                <ScalarProperty Name="InRegion" ColumnName="InRegion" />
+                <ScalarProperty Name="InCampus" ColumnName="InCampus" />
+                <ScalarProperty Name="OutFJH" ColumnName="OutFJH" />
+                <ScalarProperty Name="OutBuilding" ColumnName="OutBuilding" />
+                <ScalarProperty Name="OutRegion" ColumnName="OutRegion" />
+                <ScalarProperty Name="OutCampus" ColumnName="OutCampus" />
+                <ScalarProperty Name="StuName" ColumnName="StuName" />
+                <ScalarProperty Name="PriceChanged" ColumnName="PriceChanged" />
+                <ScalarProperty Name="InDormID" ColumnName="InDormID" />
+                <ScalarProperty Name="OutDormID" ColumnName="OutDormID" />
+                <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+                <ScalarProperty Name="ReportID" ColumnName="ReportID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
