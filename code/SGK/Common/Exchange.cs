@@ -29,6 +29,23 @@ namespace SGK.Common
             return type;
         }
 
+        public static string SSLXToNo(string name)
+        {
+            string type = "";
+            switch (name)
+            {
+                case "学生宿舍":
+                    type = "0";
+                    break;
+                case "非住宿用房":
+                    type = "1";
+                    break;
+                default:
+                    break;
+            }
+            return type;
+        }
+
         /// <summary>
         /// 转换为性别
         /// </summary>

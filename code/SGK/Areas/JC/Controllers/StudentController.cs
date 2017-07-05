@@ -7,10 +7,11 @@ using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using SGK.Controllers;
 
 namespace SGK.Areas.JC.Controllers
 {
-    public class StudentController : Controller
+    public class StudentController : BaseController
     {
         private SGK_lynnEntities db = new SGK_lynnEntities();
 

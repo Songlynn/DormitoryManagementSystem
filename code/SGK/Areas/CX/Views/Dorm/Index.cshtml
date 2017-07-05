@@ -1,0 +1,77 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    var F = Html.F();
+}
+@section script{
+    <script>
+        function btnGet() {
+            window.location.href = '@Url.Action("getDormInfo")';
+        }
+    </script>
+}
+
+@section body{
+    @(
+    F.Panel()
+        .ShowBorder(false)
+        .ShowHeader(false)
+        .IsViewPort(true)
+        .Layout(LayoutType.Fit)
+        .Items(
+            F.Grid()
+                .EnableCollapse(false)
+                .Title("宿舍住宿信息表")
+                .ShowHeader(true)
+                .ShowBorder(true)
+                .ID("gridDorm")
+                .EnableCheckBoxSelect(true)
+                .AllowPaging(true)
+                .PageSize(20)
+                .DataIDField("ID")
+                .DataTextField("Name")
+                .Toolbars(
+                    F.Toolbar()
+                        .ID("btngroup")
+                        .Items(
+                            F.DropDownList()
+                                .Items(
+                                    F.ListItem()
+                                        .Text("所有校区")
+                                ),
+                            F.DropDownList()
+                                .Items(
+                                    F.ListItem()
+                                        .Text("所有园区")
+                                ),
+                            F.DropDownList()
+                                .Items(
+                                    F.ListItem()
+                                        .Text("所有楼栋")
+                                ),
+                            F.Button()
+                                .ID("btnSearch")
+                                .Text("搜索"),
+                            F.Button()
+                                .ID("btnGet")
+                                .Text("导出")
+                                .Listener("click","btnGet();")
+                        )
+                )
+        )
+
+    )
+    @(
+    F.Window()
+        .Hidden(true)
+        .Height(300)
+        .Width(600)
+        .IsModal(true)
+        .Target(Target.Top)
+        .EnableResize(true)
+        .EnableMaximize(true)
+        .EnableIFrame(true)
+        .ID("window_dept")
+    )    
+}
+

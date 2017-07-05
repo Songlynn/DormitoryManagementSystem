@@ -8,10 +8,15 @@ using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.IO;
+using NPOI.HSSF.UserModel;
+using NPOI.SS.UserModel;
+using NPOI.SS.Formula.Eval;
+using SGK.Controllers;
 
 namespace SGK.Areas.JC.Controllers
 {
-    public class DormController : Controller
+    public class DormController : BaseController
     {
         private SGK_lynnEntities db = new SGK_lynnEntities();
 
@@ -26,7 +31,7 @@ namespace SGK.Areas.JC.Controllers
         public void BindData_Tree()
         {
             List<TreeNode> nodes = new List<TreeNode>();
-            var campus = from c in db.T_Campus where 1 == 1 select c;
+            var campus = from c in db.T_Campus where 1 == 1 orderby c.ID select c;
             foreach (var c in campus)
             {
                 TreeNode node = new TreeNode();
@@ -75,7 +80,7 @@ namespace SGK.Areas.JC.Controllers
         #region 绑定表格
         public void BindData_Grid()
         {
-            var dormlist = from d in db.vw_Dorm where 1 == 1 select d;
+            var dormlist = from d in db.vw_Dorm where 1 == 1 orderby d.DormID select d;
             DataTable dtSource = new DataTable();
             dtSource = dormlist.ToDataTable(rec => new object[] { dormlist });
 
@@ -131,5 +136,138 @@ namespace SGK.Areas.JC.Controllers
 
 
         #endregion
+
+        #region 下载模板
+        public ActionResult DownloadEmptyDormitory()
+        {
+            DownloadFile("~/Document/download/Dormitory.xlsx", "空白宿舍信息表.xlsx");
+            return UIHelper.Result();
+        }
+
+        private void DownloadFile(string strFilePath, string strFileName)
+        {
+            Response.ContentType = "application/x-zip-compressed";
+            Response.AddHeader("Content-Disposition", "attachment;filename=" + strFileName);
+            string filename = Server.MapPath(strFilePath);
+            //指定编码 防止中文文件名乱码  
+            Response.HeaderEncoding = System.Text.Encoding.GetEncoding("gb2312");
+            Response.TransmitFile(filename);
+        }
+        #endregion
+
+        #region 导入excel
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult GetExcel(HttpPostedFileBase fileExcel, FormCollection values)
+        {
+            if (fileExcel != null)
+            {
+                string fileName = fileExcel.FileName;
+
+                if (fileName.EndsWith(".xls") || fileName.EndsWith(".xlsx"))
+                {
+                    fileName = fileName.Replace(":", "_").Replace(" ", "_").Replace("\\", "_").Replace("/", "_");
+                    fileName = DateTime.Now.Ticks.ToString() + "_" + fileName;
+
+                    fileExcel.SaveAs(Server.MapPath("~/Areas/JC/Import/" + fileName));
+                    string strPath = Server.MapPath("~/Areas/JC/Import/") + fileName;
+                    //DataTable dt = FileAction.XlSToDataTable(strPath, "", 0);
+                    DataTable dt = FileAction.ExcelToDataTable(strPath, null, true);
+                    if (dt.Rows.Count > 0)
+                    {
+                        foreach(DataRow row in dt.Rows)
+                        {
+                            string id = "";
+                            T_Dorm dorm = null;
+                            string campusid = getCampusID(row[0].ToString());
+                            string regionid = getRegionID(row[1].ToString());
+                            string buildingid = getBuildingID(row[2].ToString());
+                            string ceil = String.Format("{0:d2}", Convert.ToInt16(row[3]));
+                            string num = String.Format("{0:d4}", Convert.ToInt16(row[4]));
+                            if (buildingid != "" && regionid != "" && campusid != "")
+                            {
+                                id = buildingid + ceil + num;
+                                dorm = db.T_Dorm.Find(id);
+                                if (dorm != null)
+                                {
+                                    //已存在
+                                }
+                                else
+                                {
+                                    dorm = null;
+                                    dorm.ID = id;
+                                    dorm.SSLD = buildingid;
+                                    dorm.SSLC = Convert.ToInt16(row[3]);
+                                    dorm.FJH = row[4].ToString();
+                                    dorm.SSLX = Exchange.SSLXToNo(row[5].ToString());
+                                    dorm.ZSFY = Convert.ToInt16(row[6].ToString());
+                                    dorm.CWS = Convert.ToInt16(row[7].ToString());
+                                    dorm.Remark = row[8].ToString();
+                                }
+                            }
+                            else if (regionid != "" && campusid != "")
+                            {
+
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    ShowNotify("文件格式错误，请选择Excel文件");
+                }
+            }
+            return UIHelper.Result();
+        }
+
+        private string getBuildingID(string name)
+        {
+            string id = "";
+            var building = from b in db.T_Building where b.Name == name select b;
+            if (building.Any())
+            {
+                id = building.First().ID;
+            }
+            return id;
+        }
+        private string getRegionID(string name)
+        {
+            string id = "";
+            var region = from r in db.T_Region where r.Name == name select r;
+            if (region.Any())
+            {
+                id = region.First().ID;
+            }
+            return id;
+        }
+        private string getCampusID(string name)
+        {
+            string id = "";
+            var campus = from c in db.T_Campus where c.Name == name select c;
+            if (campus.Any())
+            {
+                id = campus.First().ID;
+            }
+            return id;
+        }
+
+        private int countDorm(string id)
+        {
+            var dorm = from d in db.T_Dorm where d.SSLD == id select d;
+            return dorm.Count();
+        }
+        private int countBuilding(string id)
+        {
+            var building = from b in db.T_Building where b.SZYQ == id select b;
+            return building.Count();
+        }
+        private int countRegion(string id)
+        {
+            var region = from r in db.T_Region where r.SZXQ == id select r;
+            return region.Count();
+        }
+        #endregion
+
+
     }
 }

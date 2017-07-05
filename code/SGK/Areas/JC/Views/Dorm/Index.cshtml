@@ -5,16 +5,29 @@
 }
 
 @section script{
-
+    <script>
+        function btnDownload() {
+            window.location.href = '@Url.Action("DownloadEmptyDormitory")';
+        }
+    </script>
 }
 
 @section body{
+<form id="fileForm" style="display:none;" method="post" enctype="multipart/form-data">
+    <input type="file" id="fileupload" name="Upload" />
+</form>
+    
+
+
     @(F.Panel()
         .ShowBorder(false)
         .ShowHeader(false)
         .IsViewPort(true)
         .Layout(LayoutType.HBox)
         .Items(
+            F.Panel()
+                .Hidden(true)
+                .ContentEl("#fileForm"),
             F.Tree()
                 .ID("treeDorm")
                     .Width(200)
@@ -29,10 +42,7 @@
                                     .Text("新增"),
                                 F.Button()
                                     .ID("btnDelete")
-                                    .Text("新增"),
-                                F.Button()
-                                    .ID("btnIn")
-                                    .Text("导入")
+                                    .Text("新增")
                             )
                     )
                     .Nodes((TreeNode[])ViewBag.treeDorm),
@@ -62,7 +72,19 @@
                                 .MarginRight(10),
                             F.Button()
                                 .ID("btnDelList")
-                                .Text("删除")
+                                .Text("删除"),
+                            F.ToolbarSeparator()
+                                .MarginLeft(10)
+                                .MarginRight(10),
+                            F.FileUpload()
+                                .ID("fileExcel")
+                                .ButtonOnly(true)
+                                .ButtonText("导入")
+                                .OnFileSelected(Url.Action("getExcel"), "fileExcel"),
+                            F.Button()
+                                .ID("btnDownload")
+                                .Text("下载空白模板")
+                                .Listener("click","btnDownload();")
                         )
                 )
                 .Columns(
@@ -72,7 +94,8 @@
                         .HeaderText("编号")
                         .DataField("DormID")
                         .TextAlign(TextAlign.Center)
-                        .Width(80),
+                        .Width(80)
+                        .Hidden(true),
                     F.RenderField()
                         .HeaderText("名称")
                         .DataField("FJH")
@@ -82,7 +105,7 @@
                         .HeaderText("位置")
                         .DataField("Region")
                         .TextAlign(TextAlign.Center)
-                        .Width(80),
+                        .Width(130),
                     F.RenderField()
                         .HeaderText("宿舍类型")
                         .DataField("SSLX")

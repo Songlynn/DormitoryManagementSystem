@@ -1,6 +1,7 @@
 ﻿using FineUIMvc;
 using SGK.Common;
 using SGK.Content;
+using SGK.Controllers;
 using SGK.Models;
 using System;
 using System.Collections.Generic;
@@ -11,7 +12,7 @@ using System.Web.Mvc;
 
 namespace SGK.Areas.TB.Controllers
 {
-    public class ReportController : Controller
+    public class ReportController : BaseController
     {
         private SGK_lynnEntities db = new SGK_lynnEntities();
 
