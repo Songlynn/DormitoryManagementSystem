@@ -9,32 +9,78 @@
 
     <script>
 
-            function onNewClick(event) {
+        function onNewClick(event) {
+            F.ui.gridSubReport.addNewRecord({
+                'StudentID': '',
+                'StuName': '',
+                'OutDormID': '',
+                'OutFJH': '',
+                'InDormID': '',
+                'InFJH': ''
+            }, true);
+        }
+
+        function onNewImportClick() {
+            alert('1');
+        }
+
+        function onResetClick(event) {
+            F.confirm({
+                message: '确定要重置表格数据？',
+                ok: function () {
+                    F.ui.gridSubReport.rejectChanges();
+                }
+            });
+        }
+
+        function selectStudent() {
+            F.ui.windows.show('@Url.Content("~/TB/Report/SelectStudent")', '选择学生');
+        }
+
+        function selectInDorm() {
+            F.ui.windows.show('@Url.Content("~/TB/Report/SelectDorm")', '选择宿舍');
+        }
+
+        function AddStudent(data) {
+            var grid = F.ui.gridSubReport;
+
+            var old_data = grid.data;
+            var IDList = [];
+            for (var k in old_data) {
+                if (old_data[k]['values']['StudentID'] == "") {
+                    IDList.push(old_data[k]['id']);
+                }
+            }
+            grid.deleteRows(IDList);
+
+            for (var k in data) {
                 F.ui.gridSubReport.addNewRecord({
-                    'StudentID': '',
-                    'StuName': '',
-                    'OutDormID': '',
-                    'OutFJH': '',
+                    'StudentID': data[k]['StudentID'],
+                    'StuName': data[k]['StuName'],
+                    'OutDormID': data[k]['OutDormID'],
+                    'OutFJH': data[k]['OutFJH'],
                     'InDormID': '',
                     'InFJH': ''
                 }, true);
             }
-
-            function onResetClick(event) {
-                F.confirm({
-                    message: '确定要重置表格数据？',
-                    ok: function () {
-                        F.ui.gridSubReport.rejectChanges();
-                    }
-                });
+            var rowlist = F.ui.gridSubReport.getSelectedRows();
+            for (var k in rowlist) {
+                rowlist[k].values['InFJH'] = '111';
             }
+            console.log(grid);
+        }
 
-            function selectStudent() {
-                F.ui.windows.show('@Url.Content("~/TB/Report/SelectStudent")', '选择学生');
-            }
-
-        function selectInDorm() {
-            F.ui.windows.show('@Url.Content("~/TB/Report/SelectDorm")', '选择宿舍');
+        function AddDorm() {
+            var grid = F.ui.gridSubReport;
+            //var rowlist = F.ui.gridSubReport.getSelectedRows();
+            //for (var k in rowlist) {
+            //    console.log(rowlist[k]);
+            //    rowlist[k].values['InFJH'] = '111';
+            //}
+            $.each(grid.getSelectedRows(true), function (index, row) {
+                row.values['InFJH'] = '111';
+                console.log(row);
+            });
         }
 
     </script>
@@ -113,7 +159,7 @@
                         .Items(
                             F.Grid()
                 .ID("gridSubReport")
-                .ShowBorder(true)
+                .ShowBorder(false)
                 .ShowHeader(true)
                 .Title("调整信息")
                 .EnableCollapse(true)
@@ -132,6 +178,12 @@
                                 .Text("新增数据")
                                 .Icon(Icon.Add)
                                 .Listener("click", "onNewClick"),
+                            //F.ToolbarFill(),
+                            F.Button()
+                                .ID("btnImport")
+                                .Text("导入数据")
+                                .Icon(Icon.Add)
+                                .Listener("click", "onNewImportClick"),
                             F.ToolbarFill(),
                             F.Button()
                                 .ID("btnReset")
@@ -196,7 +248,7 @@
                                         .EnableEdit(false)
                                         .TriggerIcon(TriggerIcon.Search)
                                         .ShowTrigger(true)
-                                        .OnClientTriggerClick("selectInDorm();")
+                                        .OnClientTriggerClick("selectInDorm('');")
                                 )
                 )
                 .DataSource(ViewBag.girdSubReport)
@@ -209,12 +261,13 @@
     F.Window()
         .Hidden(true)
         .Height(500)
-        .Width(600)
+        .Width(900)
         .IsModal(true)
         .Target(Target.Top)
         .EnableResize(true)
         .EnableMaximize(true)
         .EnableIFrame(true)
+        .Layout(LayoutType.Fit)
         .ID("windows")
     )
 }
