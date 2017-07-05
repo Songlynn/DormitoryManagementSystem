@@ -1,13 +1,162 @@
 ﻿
 @{
     ViewBag.Title = "SelectDorm";
+    var F = Html.F();
 }
 
 @section script{
+    <script>
+        function btnAddClick(gridId) {
+            var activeWindow = F.getActiveWindow();
+            activeWindow.window.AddDorm();
+            activeWindow.hide();
 
+            // 触发后台事件
+            //F.doPostBack('@Url.Action("postBack")', GetSelectRowValue(gridId));
+        }
+
+        //获取页面选定的 GridRow
+        function GetSelectRowValue(gridId) {
+            var grid = F(gridId);
+            //console.log(grid);
+            if (!grid.hasSelection()) {
+                F.alert('没有选中项！');
+                return;
+            }
+
+            var result = [];
+
+            $.each(grid.getSelectedRows(true), function (index, row) {
+                var item = { "StudentID": row.id, "StuName": row.text, "OutDormID": "", "OutFJH": "" };
+                result.push(item);
+            });
+            return result;
+        }
+    </script>
 }
 
 @section body{
-    <h2>aaaa</h2>
+    @(
+    F.Grid()
+                .EnableCollapse(false)
+                .ShowHeader(false)
+                .ShowBorder(false)
+                .ID("gridDorm")
+                .EnableCheckBoxSelect(true)
+                .IsViewPort(true)
+                .Layout(LayoutType.Fit)
+                .AllowPaging(true)
+                .PageSize(20)
+                .DataIDField("ID")
+                .DataTextField("Name")
+                .Toolbars(
+                    F.Toolbar()
+                        .ID("btngroup")
+                        .Items(
+                             F.DropDownList()
+                                .Text("校区")
+                                .ID("ddl")
+                                .Width(100)
+                                .Items(
+                                    F.ListItem()
+                                        .Value("all")
+                                        .Text(""),
+                                    F.ListItem()
+                                        .Value("0")
+                                        .Text("男"),
+                                    F.ListItem()
+                                        .Value("1")
+                                        .Text("女")
+                                ),
+                             F.DropDownList()
+                                .ID("ddlSex")
+                                .Text("园区")
+                                .Width(100)
+                                .Items(
+                                    F.ListItem()
+                                        .Value("all")
+                                        .Text("所有性别"),
+                                    F.ListItem()
+                                        .Value("0")
+                                        .Text("男"),
+                                    F.ListItem()
+                                        .Value("1")
+                                        .Text("女")
+                                ),
+                             F.DropDownList()
+                                .ID("ddlSex")
+                                .Text("楼栋")
+                                .Width(100)
+                                .Items(
+                                    F.ListItem()
+                                        .Value("all")
+                                        .Text("所有性别"),
+                                    F.ListItem()
+                                        .Value("0")
+                                        .Text("男"),
+                                    F.ListItem()
+                                        .Value("1")
+                                        .Text("女")
+                                ),
+                            F.DropDownList()
+                                .ID("ddlSex")
+                                .Text("楼层")
+                                .Width(100)
+                                .Items(
+                                    F.ListItem()
+                                        .Value("all")
+                                        .Text("所有性别"),
+                                    F.ListItem()
+                                        .Value("0")
+                                        .Text("男"),
+                                    F.ListItem()
+                                        .Value("1")
+                                        .Text("女")
+                                ),
+                            F.ToolbarSeparator()
+                                .MarginLeft(10)
+                                .MarginRight(10),
+                            F.Button()
+                                .ID("btnSearch")
+                                .Text("选择")
+                                .Listener("click", "btnAddClick('gridDorm');")
+                        )
+                )
+                .Columns(
+                    F.RowNumberField(),
+                    F.RenderField()
+                        .HeaderText("寝室ID")
+                        .DataField("ID")
+                        .Hidden(true)
+                        .TextAlign(TextAlign.Center)
+                        .Width(120),
+                    F.RenderField()
+                        .HeaderText("校区")
+                        .DataField("ID")
+                        .TextAlign(TextAlign.Center)
+                        .Width(120),
+                    F.RenderField()
+                        .HeaderText("园区")
+                        .DataField("ID")
+                        .TextAlign(TextAlign.Center)
+                        .Width(120),
+                    F.RenderField()
+                        .HeaderText("楼栋")
+                        .DataField("ID")
+                        .TextAlign(TextAlign.Center)
+                        .Width(120),
+                    F.RenderField()
+                        .HeaderText("楼层")
+                        .DataField("ID")
+                        .TextAlign(TextAlign.Center)
+                        .Width(120),
+                    F.RenderField()
+                        .HeaderText("寝室号")
+                        .DataField("Name")
+                        .TextAlign(TextAlign.Center)
+                        .Width(100)
+                )
+                .DataSource(ViewBag.gridStudent)
+                )
 }
 

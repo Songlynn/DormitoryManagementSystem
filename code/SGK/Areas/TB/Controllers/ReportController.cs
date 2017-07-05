@@ -5,12 +5,20 @@ using SGK.Models;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Script.Serialization;
 
 namespace SGK.Areas.TB.Controllers
 {
+    public class JsonDataModel
+    {
+        public string id { get; set; }
+        public string text { get; set; }
+    }
+
     public class ReportController : Controller
     {
         private SGK_lynnEntities db = new SGK_lynnEntities();
@@ -107,6 +115,19 @@ namespace SGK.Areas.TB.Controllers
         public ActionResult SelectDorm()
         {
             return View();
+        }
+
+        public ActionResult postBack()
+        {
+            //获取Json 数据
+            //var sr = new StreamReader(Request.InputStream);
+            //var stream = sr.ReadToEnd();
+            //JavaScriptSerializer js = new JavaScriptSerializer();
+            //var list = js.Deserialize<List<JsonDataModel>>(stream);
+
+
+
+            return UIHelper.Result();
         }
     }
 }

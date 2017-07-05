@@ -8,7 +8,7 @@
     <script src="~/res/js/grid.js"></script>
     <script>
         function btnAdd() {
-            F.ui.window_dept.show('@Url.Content("~/TB/Report/Add")', "新增单位");
+            F.ui.window_dept.show('@Url.Content("~/TB/Report/Add")', "新增调动申请");
         }
 
         function btnDelete() {
@@ -45,7 +45,7 @@
                     });
                 }
                 else if (cnode.hasClass('btnedit')) {
-                    F.ui.window_dept.show('@Url.Content("~/TB/Report/Modify")?id='+[rowData.id][0],"编辑单位信息");
+                    F.ui.window_dept.show('@Url.Content("~/TB/Report/Modify")?id=' + [rowData.id][0], "编辑单位信息");
                 }
             });
 
@@ -227,6 +227,7 @@
         .IsModal(true)
         .Target(Target.Top)
         .EnableResize(true)
+        .Maximized(true)
         .EnableMaximize(true)
         .EnableIFrame(true)
         .ID("window_dept")

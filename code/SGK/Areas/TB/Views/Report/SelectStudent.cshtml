@@ -6,8 +6,33 @@
 
 @section script{
     <script>
-        function btnSearch() {
+        function btnAddClick(gridId) {
+            var activeWindow = F.getActiveWindow();
+            activeWindow.window.AddStudent(GetSelectRowValue(gridId));
+            activeWindow.hide();
 
+            // 触发后台事件
+            //F.doPostBack('@Url.Action("postBack")', GetSelectRowValue(gridId));
+        }
+        
+        //获取页面选定的 GridRow
+        function GetSelectRowValue(gridId) {
+            var grid = F(gridId);
+            //console.log(grid);
+            if (!grid.hasSelection()) {
+                F.alert('没有选中项！');
+                return;
+            }
+
+            var result = [];
+
+            $.each(grid.getSelectedRows(true), function (index, row) {
+                var item = { "StudentID": row.id, "StuName": row.text, "OutDormID": "", "OutFJH": "" };
+
+                result.push(item);
+            });
+
+            return result;
         }
     </script>
 }
@@ -19,6 +44,8 @@
                 .ShowBorder(false)
                 .ID("gridStudent")
                 .EnableCheckBoxSelect(true)
+                .IsViewPort(true)
+                .Layout(LayoutType.Fit)
                 .AllowPaging(true)
                 .PageSize(20)
                 .DataIDField("ID")
@@ -31,10 +58,10 @@
                                 .ID("tbCollege")
                                 .EmptyText("学院"),
                             F.TextBox()
-                                .ID("tbMajor")
+                                .ID("tbClassName")
                                 .EmptyText("班级"),
                             F.TextBox()
-                                .ID("tbClassName")
+                                .ID("tbClassName1")
                                 .EmptyText("班级"),
                             F.DropDownList()
                                 .ID("ddlSex")
@@ -56,7 +83,7 @@
                             F.Button()
                                 .ID("btnSearch")
                                 .Text("新增")
-                                .Listener("click", "btnSearch();")
+                                .Listener("click", "btnAddClick('gridStudent');")
                         )
                 )
                 .Columns(
