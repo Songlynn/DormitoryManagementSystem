@@ -59,6 +59,15 @@
     <Property Name="Bed_09" Type="varchar" MaxLength="64" />
     <Property Name="Bed_10" Type="varchar" MaxLength="64" />
   </EntityType>
+  <EntityType Name="T_Menu">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="varchar" MaxLength="64" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="64" />
+    <Property Name="Url" Type="varchar" MaxLength="64" />
+    <Property Name="FatherID" Type="varchar" MaxLength="64" />
+  </EntityType>
   <EntityType Name="T_Region">
     <Key>
       <PropertyRef Name="ID" />
@@ -88,6 +97,16 @@
     </Key>
     <Property Name="ID" Type="nchar" MaxLength="10" Nullable="false" />
     <Property Name="Name" Type="nchar" MaxLength="10" />
+  </EntityType>
+  <!--生成过程中发现错误:
+警告 6002: 表/视图“SGK_lynn.dbo.T_RoleMenu”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+  <EntityType Name="T_RoleMenu">
+    <Key>
+      <PropertyRef Name="RoleID" />
+      <PropertyRef Name="MenuID" />
+    </Key>
+    <Property Name="RoleID" Type="varchar" MaxLength="64" Nullable="false" />
+    <Property Name="MenuID" Type="varchar" MaxLength="64" Nullable="false" />
   </EntityType>
   <EntityType Name="T_Student">
     <Key>
@@ -191,6 +210,18 @@
     <Property Name="Stu_10" Type="varchar" MaxLength="64" />
   </EntityType>
   <!--生成过程中发现错误:
+警告 6002: 表/视图“SGK_lynn.dbo.vw_Menu”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+  <EntityType Name="vw_Menu">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="varchar" MaxLength="64" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="64" />
+    <Property Name="Url" Type="varchar" MaxLength="64" />
+    <Property Name="FatherID" Type="varchar" MaxLength="64" />
+    <Property Name="Father" Type="varchar" MaxLength="64" />
+  </EntityType>
+  <!--生成过程中发现错误:
 警告 6002: 表/视图“SGK_lynn.dbo.vw_Region”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
   <EntityType Name="vw_Region">
     <Key>
@@ -219,6 +250,19 @@
     <Property Name="Remark" Type="varchar" MaxLength="1024" />
     <Property Name="Name" Type="varchar" MaxLength="64" />
     <Property Name="AuditName" Type="varchar" MaxLength="64" />
+  </EntityType>
+  <!--生成过程中发现错误:
+警告 6002: 表/视图“SGK_lynn.dbo.vw_RoleMenu”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+  <EntityType Name="vw_RoleMenu">
+    <Key>
+      <PropertyRef Name="RoleID" />
+      <PropertyRef Name="MenuID" />
+    </Key>
+    <Property Name="RoleID" Type="varchar" MaxLength="64" Nullable="false" />
+    <Property Name="MenuID" Type="varchar" MaxLength="64" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="64" />
+    <Property Name="Url" Type="varchar" MaxLength="64" />
+    <Property Name="FatherID" Type="varchar" MaxLength="64" />
   </EntityType>
   <!--生成过程中发现错误:
 警告 6002: 表/视图“SGK_lynn.dbo.vw_Student”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
@@ -274,11 +318,18 @@
     <EntitySet Name="T_Campus" EntityType="Self.T_Campus" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="T_Dept" EntityType="Self.T_Dept" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="T_Dorm" EntityType="Self.T_Dorm" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_Menu" EntityType="Self.T_Menu" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="T_Region" EntityType="Self.T_Region" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="T_Report" EntityType="Self.T_Report" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="T_Role" EntityType="Self.T_Role" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="T_Student" EntityType="Self.T_Student" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="T_SubReport" EntityType="Self.T_SubReport" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_RoleMenu" EntityType="Self.T_RoleMenu" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [T_RoleMenu].[RoleID] AS [RoleID], 
+    [T_RoleMenu].[MenuID] AS [MenuID]
+    FROM [dbo].[T_RoleMenu] AS [T_RoleMenu]</DefiningQuery>
+    </EntitySet>
     <EntitySet Name="vw_Account" EntityType="Self.vw_Account" store:Type="Views" store:Schema="dbo">
       <DefiningQuery>SELECT 
     [vw_Account].[ID] AS [ID], 
@@ -341,6 +392,15 @@
     [vw_Dorm].[Stu_10] AS [Stu_10]
     FROM [dbo].[vw_Dorm] AS [vw_Dorm]</DefiningQuery>
     </EntitySet>
+    <EntitySet Name="vw_Menu" EntityType="Self.vw_Menu" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vw_Menu].[ID] AS [ID], 
+    [vw_Menu].[Name] AS [Name], 
+    [vw_Menu].[Url] AS [Url], 
+    [vw_Menu].[FatherID] AS [FatherID], 
+    [vw_Menu].[Father] AS [Father]
+    FROM [dbo].[vw_Menu] AS [vw_Menu]</DefiningQuery>
+    </EntitySet>
     <EntitySet Name="vw_Region" EntityType="Self.vw_Region" store:Type="Views" store:Schema="dbo">
       <DefiningQuery>SELECT 
     [vw_Region].[RegionID] AS [RegionID], 
@@ -364,6 +424,15 @@
     [vw_Report].[Name] AS [Name], 
     [vw_Report].[AuditName] AS [AuditName]
     FROM [dbo].[vw_Report] AS [vw_Report]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vw_RoleMenu" EntityType="Self.vw_RoleMenu" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vw_RoleMenu].[RoleID] AS [RoleID], 
+    [vw_RoleMenu].[MenuID] AS [MenuID], 
+    [vw_RoleMenu].[Name] AS [Name], 
+    [vw_RoleMenu].[Url] AS [Url], 
+    [vw_RoleMenu].[FatherID] AS [FatherID]
+    FROM [dbo].[vw_RoleMenu] AS [vw_RoleMenu]</DefiningQuery>
     </EntitySet>
     <EntitySet Name="vw_Student" EntityType="Self.vw_Student" store:Type="Views" store:Schema="dbo">
       <DefiningQuery>SELECT 

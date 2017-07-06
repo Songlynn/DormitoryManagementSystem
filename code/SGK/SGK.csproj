@@ -191,8 +191,14 @@
     <Compile Include="Areas\JC\Controllers\DormController.cs" />
     <Compile Include="Areas\JC\Controllers\StudentController.cs" />
     <Compile Include="Areas\JC\JCAreaRegistration.cs" />
+    <Compile Include="Areas\Sys\Controllers\AccountController.cs" />
+    <Compile Include="Areas\Sys\Controllers\MenuController.cs" />
+    <Compile Include="Areas\Sys\Controllers\RoleController.cs" />
+    <Compile Include="Areas\Sys\SysAreaRegistration.cs" />
     <Compile Include="Areas\TB\Controllers\ReportController.cs" />
     <Compile Include="Areas\TB\TBAreaRegistration.cs" />
+    <Compile Include="Areas\UserInfo\Controllers\PsdController.cs" />
+    <Compile Include="Areas\UserInfo\UserInfoAreaRegistration.cs" />
     <Compile Include="Common\Exchange.cs" />
     <Compile Include="Common\FileAction.cs" />
     <Compile Include="Content\DataTableHelper.cs" />
@@ -231,6 +237,9 @@
     <Compile Include="Models\T_Dorm.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\T_Menu.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\T_Region.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -238,6 +247,9 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\T_Role.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T_RoleMenu.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\T_Student.cs">
@@ -255,10 +267,16 @@
     <Compile Include="Models\vw_Dorm.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\vw_Menu.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\vw_Region.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\vw_Report.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vw_RoleMenu.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\vw_Student.cs">
@@ -363,6 +381,14 @@
     <Content Include="Areas\CX\Views\web.config" />
     <Content Include="Areas\CX\Views\_ViewStart.cshtml" />
     <Content Include="Areas\CX\Views\Dorm\Index.cshtml" />
+    <Content Include="Areas\Sys\Views\web.config" />
+    <Content Include="Areas\Sys\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Sys\Views\Role\Index.cshtml" />
+    <Content Include="Areas\Sys\Views\Account\Index.cshtml" />
+    <Content Include="Areas\UserInfo\Views\web.config" />
+    <Content Include="Areas\UserInfo\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\UserInfo\Views\Psd\Index.cshtml" />
+    <Content Include="Areas\Sys\Views\Menu\Index.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -387,8 +413,12 @@
     <Folder Include="Areas\JC\Import\" />
     <Folder Include="Areas\JC\Models\" />
     <Folder Include="Areas\JC\Views\Shared\" />
+    <Folder Include="Areas\Sys\Models\" />
+    <Folder Include="Areas\Sys\Views\Shared\" />
     <Folder Include="Areas\TB\Models\" />
     <Folder Include="Areas\TB\Views\Shared\" />
+    <Folder Include="Areas\UserInfo\Models\" />
+    <Folder Include="Areas\UserInfo\Views\Shared\" />
     <Folder Include="Document\import\" />
   </ItemGroup>
   <ItemGroup>

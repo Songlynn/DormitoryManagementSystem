@@ -22,6 +22,10 @@
         <EntityTypeShape EntityType="SGK_lynnModel.vw_Student" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SGK_lynnModel.vw_Report" Width="1.5" PointX="0.75" PointY="10.75" />
         <EntityTypeShape EntityType="SGK_lynnModel.vw_SubReport" Width="1.5" PointX="9.75" PointY="10.75" />
+        <EntityTypeShape EntityType="SGK_lynnModel.T_Menu" Width="1.5" PointX="3.375" PointY="11.75" />
+        <EntityTypeShape EntityType="SGK_lynnModel.vw_Menu" Width="1.5" PointX="11.375" PointY="6.75" />
+        <EntityTypeShape EntityType="SGK_lynnModel.T_RoleMenu" Width="1.5" PointX="12.375" PointY="9.75" />
+        <EntityTypeShape EntityType="SGK_lynnModel.vw_RoleMenu" Width="1.5" PointX="12.375" PointY="12.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

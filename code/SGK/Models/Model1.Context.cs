@@ -42,5 +42,9 @@ namespace SGK.Models
         public virtual DbSet<vw_Student> vw_Student { get; set; }
         public virtual DbSet<vw_Report> vw_Report { get; set; }
         public virtual DbSet<vw_SubReport> vw_SubReport { get; set; }
+        public virtual DbSet<T_Menu> T_Menu { get; set; }
+        public virtual DbSet<vw_Menu> vw_Menu { get; set; }
+        public virtual DbSet<T_RoleMenu> T_RoleMenu { get; set; }
+        public virtual DbSet<vw_RoleMenu> vw_RoleMenu { get; set; }
     }
 }

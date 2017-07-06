@@ -235,6 +235,10 @@
     <EntitySet Name="vw_Student" EntityType="Self.vw_Student" />
     <EntitySet Name="vw_Report" EntityType="SGK_lynnModel.vw_Report" />
     <EntitySet Name="vw_SubReport" EntityType="SGK_lynnModel.vw_SubReport" />
+    <EntitySet Name="T_Menu" EntityType="SGK_lynnModel.T_Menu" />
+    <EntitySet Name="vw_Menu" EntityType="SGK_lynnModel.vw_Menu" />
+    <EntitySet Name="T_RoleMenu" EntityType="SGK_lynnModel.T_RoleMenu" />
+    <EntitySet Name="vw_RoleMenu" EntityType="SGK_lynnModel.vw_RoleMenu" />
   </EntityContainer>
   <EntityType Name="vw_Report">
     <Key>
@@ -272,5 +276,43 @@
     <Property Name="InRegion" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
     <Property Name="InBuilding" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
     <Property Name="InFJH" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="T_Menu">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="Url" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="FatherID" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="vw_Menu">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="Url" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="FatherID" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="Father" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="T_RoleMenu">
+    <Key>
+      <PropertyRef Name="RoleID" />
+      <PropertyRef Name="MenuID" />
+    </Key>
+    <Property Name="RoleID" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="MenuID" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="vw_RoleMenu">
+    <Key>
+      <PropertyRef Name="RoleID" />
+      <PropertyRef Name="MenuID" />
+    </Key>
+    <Property Name="RoleID" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="MenuID" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="Url" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="FatherID" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
   </EntityType>
 </Schema>

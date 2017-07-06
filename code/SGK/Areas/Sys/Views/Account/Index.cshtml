@@ -1,0 +1,78 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    var F = Html.F();
+}
+@section body{
+    @(
+    F.Panel()
+        .ShowBorder(false)
+        .ShowHeader(false)
+        .IsViewPort(true)
+        .Layout(LayoutType.Fit)
+        .Items(
+            F.Grid()
+                .EnableCollapse(false)
+                .Title("用户信息")
+                .ShowHeader(true)
+                .ShowBorder(true)
+                .ID("gridAccount")
+                .EnableCheckBoxSelect(true)
+                .AllowPaging(true)
+                .PageSize(20)
+                .DataIDField("ID")
+                .DataTextField("Name")
+                .Toolbars(
+                    F.Toolbar()
+                        .ID("btngroup")
+                        .Items(
+                            F.Button()
+                                .ID("btnAdd")
+                                .Text("新增"),
+                            F.ToolbarSeparator()
+                                .MarginLeft(10)
+                                .MarginRight(10),
+                            F.Button()
+                                .ID("btnDelList")
+                                .Text("删除")
+                        )
+                )
+                .Columns(
+                    F.RowNumberField()
+                        .TextAlign(TextAlign.Center),
+                    F.RenderField()
+                        .HeaderText("账号")
+                        .DataField("ID")
+                        .TextAlign(TextAlign.Center)
+                        .Width(100),
+                    F.RenderField()
+                        .HeaderText("名称")
+                        .DataField("Name")
+                        .TextAlign(TextAlign.Center)
+                        .Width(100),
+                    F.RenderField()
+                        .HeaderText("联系方式")
+                        .DataField("Tel")
+                        .TextAlign(TextAlign.Center)
+                        .Width(100),
+                    F.RenderField()
+                        .HeaderText("所在单位")
+                        .DataField("Dept")
+                        .TextAlign(TextAlign.Center)
+                        .Width(100),
+                    F.RenderField()
+                        .HeaderText("所属角色")
+                        .DataField("Role")
+                        .TextAlign(TextAlign.Center)
+                        .Width(100)
+                )
+                .DataSource(ViewBag.gridAccount)
+        )
+
+    )
+
+}
+
+
+
+

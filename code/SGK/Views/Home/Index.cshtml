@@ -6,7 +6,11 @@
 @section head {
 
     <link type="text/css" rel="stylesheet" href="~/res/css/index.css" />
-
+    <script>
+        function Exit(){
+            window.location.href='@Url.Action("Exit")';
+        }
+    </script>
 }
 
 @section body {
@@ -44,14 +48,14 @@
                     @(F.Button()
                         .EnableDefaultCorner(false)
                         .EnableDefaultState(false)
-                        .Text("三生石上")
+                        .Text(ViewBag.AccountName)
                         .CssClass("userpicaction")
                         .Menu(F.Menu()
                             .Items(
                                 F.MenuButton()
                                     .IconFont(IconFont.SignOut)
                                     .Text("安全退出")
-                                    .Listener("click", "F.alert('尚未实现');")
+                                    .Listener("click", "Exit();")
                             )
                         )
                     )
@@ -97,64 +101,65 @@
                         .ShowHeader(false)
                         .ID("treeMenu")
                         .Nodes(
-                            F.TreeNode()
-                                .Text("基础数据管理")
-                                .Expanded(false)
-                                .Nodes(
-                                    F.TreeNode()
-                                        .Text("单位管理")
-                                        .NavigateUrl(Url.Content("~/JC/Dept/Index")),
-                                    F.TreeNode()
-                                        .Text("学生信息管理")
-                                        .NavigateUrl(Url.Content("~/JC/Student/Index")),
-                                    F.TreeNode()
-                                        .Text("宿舍管理")
-                                        .NavigateUrl(Url.Content("~/JC/Dorm/Index"))
-                                ),
-                            F.TreeNode()
-                                .Text("申请管理")
-                                .NavigateUrl(Url.Content("~/TB/Report/Index")),
-                            F.TreeNode()
-                                .Text("审核管理"),
-                            F.TreeNode()
-                                .Text("报表管理")
-                                .Expanded(false)
-                                .Nodes(
-                                    F.TreeNode()
-                                        .Text("变动记录")
-                                        .NavigateUrl(""),
-                                    F.TreeNode()
-                                        .Text("学生住宿情况")
-                                        .NavigateUrl(""),
-                                    F.TreeNode()
-                                        .Text("宿舍住宿情况")
-                                        .NavigateUrl(Url.Content("~/CX/Dorm/Index"))
-                                ),
-                            F.TreeNode()
-                                .Text("基本信息管理")
-                                .Expanded(false)
-                                .Nodes(
-                                    F.TreeNode()
-                                        .Text("密码修改")
-                                        .NavigateUrl("")
-                                ),
-                            F.TreeNode()
-                                .Text("系统管理")
-                                .Expanded(false)
-                                .Nodes(
-                                    F.TreeNode()
-                                        .Text("用户管理")
-                                        .NavigateUrl(""),
-                                    F.TreeNode()
-                                        .Text("菜单管理")
-                                        .NavigateUrl(""),
-                                    F.TreeNode()
-                                        .Text("角色管理")
-                                        .NavigateUrl(""),
-                                    F.TreeNode()
-                                        .Text("角色菜单管理")
-                                        .NavigateUrl("")
-                                )
+                        //F.TreeNode()
+                        //    .Text("基础数据管理")
+                        //    .Expanded(false)
+                        //    .Nodes(
+                        //        F.TreeNode()
+                        //            .Text("单位管理")
+                        //            .NavigateUrl(Url.Content("~/JC/Dept/Index")),
+                        //        F.TreeNode()
+                        //            .Text("学生信息管理")
+                        //            .NavigateUrl(Url.Content("~/JC/Student/Index")),
+                        //        F.TreeNode()
+                        //            .Text("宿舍管理")
+                        //            .NavigateUrl(Url.Content("~/JC/Dorm/Index"))
+                        //    ),
+                        //F.TreeNode()
+                        //    .Text("申请管理")
+                        //    .NavigateUrl(Url.Content("~/TB/Report/Index")),
+                        //F.TreeNode()
+                        //    .Text("审核管理"),
+                        //F.TreeNode()
+                        //    .Text("报表管理")
+                        //    .Expanded(false)
+                        //    .Nodes(
+                        //        F.TreeNode()
+                        //            .Text("变动记录")
+                        //            .NavigateUrl(""),
+                        //        F.TreeNode()
+                        //            .Text("学生住宿情况")
+                        //            .NavigateUrl(""),
+                        //        F.TreeNode()
+                        //            .Text("宿舍住宿情况")
+                        //            .NavigateUrl(Url.Content("~/CX/Dorm/Index"))
+                        //    ),
+                        //F.TreeNode()
+                        //    .Text("基本信息管理")
+                        //    .Expanded(false)
+                        //    .Nodes(
+                        //        F.TreeNode()
+                        //            .Text("密码修改")
+                        //            .NavigateUrl(Url.Content("~/UserInfo/Psd/Index"))
+                        //    ),
+                        //F.TreeNode()
+                        //    .Text("系统管理")
+                        //    .Expanded(false)
+                        //    .Nodes(
+                        //        F.TreeNode()
+                        //            .Text("用户管理")
+                        //            .NavigateUrl(Url.Content("~/Sys/Account/Index")),
+                        //        F.TreeNode()
+                        //            .Text("菜单管理")
+                        //            .NavigateUrl(Url.Content("~/Sys/Menu/Index")),
+                        //        F.TreeNode()
+                        //            .Text("角色管理")
+                        //            .NavigateUrl(Url.Content("~/Sys/Role/Index")),
+                        //        F.TreeNode()
+                        //            .Text("角色菜单管理")
+                        //            .NavigateUrl("")
+                        //    )
+                        (TreeNode[])ViewBag.treeMenu
                         )
                 ),
             F.Region()

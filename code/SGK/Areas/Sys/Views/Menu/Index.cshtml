@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    var F = Html.F();
+}
+
+@section body{
+
+@(F.Panel()
+        .ShowBorder(false)
+        .ShowHeader(false)
+        .IsViewPort(true)
+        .Layout(LayoutType.HBox)
+        .Items(
+            F.Tree()
+                .ID("treeMenu")
+                    .Width(400)
+                    .ShowHeader(true)
+                    .EnableCollapse(false)
+                    .Title("菜单管理")
+                    .Toolbars(
+                        F.Toolbar()
+                            .Items(
+                                F.Button()
+                                    .ID("btnAdd")
+                                    .Text("新增"),
+                                F.Button()
+                                    .ID("btnDelete")
+                                    .Text("删除")
+                            )
+                    )
+                    .Nodes((TreeNode[])ViewBag.treeMenu)
+        )
+    )
+
+
+}
+

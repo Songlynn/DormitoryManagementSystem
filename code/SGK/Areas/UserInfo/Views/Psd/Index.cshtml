@@ -1,18 +1,17 @@
-﻿@{
-    ViewBag.Title = "Login";
+﻿
+@{
+    ViewBag.Title = "Index";
     var F = @Html.F();
 }
 
+@section body{
 
-@section body {
-
-
-    @(F.Window()
+@(F.Window()
         .Width(350)
         .WindowPosition(WindowPosition.GoldenSection)
         .EnableClose(false)
         .IsModal(false)
-        .Title("登录")
+        .Title("修改密码")
         .ID("Window1")
         .Items(
             F.SimpleForm()
@@ -25,14 +24,21 @@
                     F.TextBox()
                         .ShowRedStar(true)
                         .Required(true)
-                        .Label("账号")
-                        .ID("tbUserName"),
+                        .TextMode(TextMode.Password)
+                        .Label("旧密码")
+                        .ID("tbPsdOld"),
                     F.TextBox()
                         .ShowRedStar(true)
                         .Required(true)
                         .TextMode(TextMode.Password)
-                        .Label("密码")
-                        .ID("tbPassword")
+                        .Label("新密码")
+                        .ID("tbPsdNew"),
+                    F.TextBox()
+                        .ShowRedStar(true)
+                        .Required(true)
+                        .TextMode(TextMode.Password)
+                        .Label("确认密码")
+                        .ID("tbPsdNew2")
                 )
         )
         .Toolbars(
@@ -42,22 +48,19 @@
                 .ID("Toolbar1")
                 .Items(
                     F.Button()
-                        .OnClick(Url.Action("btnLogin_Click"), "SimpleForm1")
+                        .OnClick(Url.Action("btnSubmit_Click"), "SimpleForm1")
                         .ValidateTarget(Target.Top)
                         .ValidateForms("SimpleForm1")
                         .Type(ButtonType.Submit)
-                        .Text("登录")
-                        .ID("btnLogin"),
+                        .Text("提交")
+                        .ID("btnSubmit"),
                     F.Button()
                         .Type(ButtonType.Reset)
                         .Text("重置")
                         .ID("btnReset")
                 )
         )
-    )
-    <br>
-
+)
 
 }
-
 
